@@ -1,9 +1,9 @@
 // Service worker : rend le site installable et utilisable même avec un réseau faible.
 // Change VERSION à chaque grosse mise à jour pour forcer le rafraîchissement.
-var VERSION = "ps-v4";
+var VERSION = "ps-v5";
 var FICHIERS = [
   "/", "/index.html", "/membres.html", "/vip.html", "/profil.html", "/soutien.html",
-  "/abonnement.html", "/espace-membre.html", "/conditions.html", "/confidentialite.html",
+  "/abonnement.html", "/espace-membre.html", "/conditions.html", "/confidentialite.html", "/cadeau.html", "/levis.html",
   "/styles.css", "/config.js", "/data.js", "/layout.js", "/script.js",
   "/assets/img/hero.jpg", "/assets/icons/icon-192.png"
 ];

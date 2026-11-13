@@ -4,6 +4,7 @@
 // Paiement en ligne (facultatif) : ajoute lien: "https://buy.stripe.com/..." à un service
 // pour afficher un bouton « Payer en ligne » sur le profil. Sinon, tu envoies le lien
 // de paiement au visiteur après la confirmation du membre (mode concierge).
+// ceSoir: true affiche « Dispo ce soir » et place le profil en premier (le membre l'active dans Mon espace).
 // Les profils ci-dessous sont FICTIFS : photos libres de droits (Unsplash) pour la démo.
 
 window.CATEGORIES = [
@@ -17,7 +18,7 @@ window.CATEGORIES = [
 
 window.MEMBRES = [
   {
-    id: "lea", nom: "Léa", age: 29, ville: "Montréal", quartier: "Plateau-Mont-Royal",
+    id: "lea", nom: "Léa", age: 29, ville: "Montréal", quartier: "Plateau-Mont-Royal", ceSoir: true,
     categorie: "Massothérapie", titre: "Massothérapeute agréée, suédois et détente",
     photo: "assets/img/lea.jpg", prix: 95, verifie: true, vip: true,
     lieux: ["En salon", "À domicile"], note: 4.9, avis: 38, langues: ["Français", "Anglais"],
@@ -45,7 +46,7 @@ window.MEMBRES = [
     tel: "418 555-0177"
   },
   {
-    id: "chloe", nom: "Chloé", age: 28, ville: "Montréal", quartier: "Centre-ville",
+    id: "chloe", nom: "Chloé", age: 28, ville: "Montréal", quartier: "Centre-ville", ceSoir: true,
     categorie: "Accompagnement et sorties", titre: "Compagnie pour soupers, spectacles et 5 à 7",
     photo: "assets/img/chloe.jpg", prix: 75, verifie: true, vip: true,
     lieux: ["Sorties en public"], note: 4.9, avis: 14, langues: ["Français", "Anglais"],
@@ -59,7 +60,7 @@ window.MEMBRES = [
     tel: "514 555-0173"
   },
   {
-    id: "ines", nom: "Inès", age: 30, ville: "Laval", quartier: "Sainte-Dorothée",
+    id: "ines", nom: "Inès", age: 30, ville: "Lévis", quartier: "Desjardins", ceSoir: true,
     categorie: "Accompagnement et sorties", titre: "Accompagnatrice de voyage et de mariage",
     photo: "assets/img/ines.jpg", prix: 85, verifie: true, vip: false,
     lieux: ["Sorties en public"], note: 4.8, avis: 9, langues: ["Français", "Anglais", "Italien"],
@@ -70,7 +71,7 @@ window.MEMBRES = [
       { nom: "Brunch ou activité de jour, 2 h", prix: 140 }
     ],
     dispo: { lun: "", mar: "", mer: "", jeu: "16 h à 22 h", ven: "16 h à minuit", sam: "11 h à minuit", dim: "11 h à 20 h" },
-    tel: "450 555-0124"
+    tel: "418 555-0124"
   },
   {
     id: "rosalie", nom: "Rosalie", age: 34, ville: "Québec", quartier: "Sainte-Foy",
@@ -113,7 +114,7 @@ window.MEMBRES = [
     tel: "819 555-0190"
   },
   {
-    id: "yasmine", nom: "Yasmine", age: 30, ville: "Sherbrooke", quartier: "Centre-ville",
+    id: "yasmine", nom: "Yasmine", age: 30, ville: "Lévis", quartier: "Saint-Romuald", ceSoir: true,
     categorie: "Massothérapie", titre: "Massage sportif et thérapeutique",
     photo: "assets/img/yasmine.jpg", prix: 90, verifie: true, vip: false,
     lieux: ["En salon", "À domicile"], note: 4.7, avis: 29, langues: ["Français"],
@@ -123,7 +124,7 @@ window.MEMBRES = [
       { nom: "Massage thérapeutique à domicile, 60 min", prix: 115 }
     ],
     dispo: { lun: "8 h à 16 h", mar: "8 h à 16 h", mer: "8 h à 16 h", jeu: "8 h à 16 h", ven: "", sam: "", dim: "" },
-    tel: "819 555-0163"
+    tel: "418 555-0163"
   },
   {
     id: "nadia", nom: "Nadia", age: 26, ville: "Montréal", quartier: "Mile End",
@@ -152,7 +153,7 @@ window.MEMBRES = [
     tel: "418 555-0105"
   },
   {
-    id: "camille", nom: "Camille", age: 28, ville: "Trois-Rivières", quartier: "Centre",
+    id: "camille", nom: "Camille", age: 28, ville: "Lévis", quartier: "Vieux-Lévis", ceSoir: true,
     categorie: "Soins et bien-être", titre: "Esthéticienne, soins du visage et du corps",
     photo: "assets/img/camille.jpg", prix: 85, verifie: true, vip: true,
     lieux: ["En salon"], note: 4.9, avis: 33, langues: ["Français"],
@@ -162,7 +163,7 @@ window.MEMBRES = [
       { nom: "Rituel corps complet, 90 min", prix: 140 }
     ],
     dispo: { lun: "", mar: "9 h à 17 h", mer: "9 h à 17 h", jeu: "9 h à 17 h", ven: "9 h à 17 h", sam: "9 h à 13 h", dim: "" },
-    tel: "819 555-0151"
+    tel: "418 555-0151"
   },
   {
     id: "aiko", nom: "Aiko", age: 32, ville: "Montréal", quartier: "Griffintown",
@@ -178,7 +179,7 @@ window.MEMBRES = [
     tel: "514 555-0109"
   },
   {
-    id: "julie", nom: "Julie", age: 35, ville: "Longueuil", quartier: "Vieux-Longueuil",
+    id: "julie", nom: "Julie", age: 35, ville: "Lévis", quartier: "Saint-Nicolas",
     categorie: "Ménage", titre: "Ménage soigné et discret",
     photo: "assets/img/julie.jpg", prix: 38, verifie: true, vip: false,
     lieux: ["À domicile"], note: 4.8, avis: 52, langues: ["Français", "Anglais"],
@@ -188,7 +189,7 @@ window.MEMBRES = [
       { nom: "Grand ménage, 5 h", prix: 180 }
     ],
     dispo: { lun: "8 h à 16 h", mar: "8 h à 16 h", mer: "8 h à 16 h", jeu: "8 h à 16 h", ven: "8 h à 16 h", sam: "", dim: "" },
-    tel: "450 555-0136"
+    tel: "418 555-0136"
   },
   {
     id: "salon-velours", nom: "Salon Velours", age: null, ville: "Montréal", quartier: "Vieux-Montréal",

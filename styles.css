@@ -292,3 +292,19 @@ h1 em, h2 em { font-style: italic; color: var(--accent); }
 .tag-demo { color: #e0a33a; font-weight: 600; }
 .tag-ok { color: #2fae74; font-weight: 600; }
 .demo-bar { background: #e0a33a; color: #1a1208; text-align: center; font-size: .8rem; font-weight: 600; padding: 5px 12px; }
+
+/* ----- Dispo ce soir, offre, cadeaux, villes ----- */
+.badge.soir { background: #c2185b; color: #fff; }
+.ph .badge.soir { position: absolute; z-index: 2; top: 44px; left: 12px; }
+#filtre-soir.actif { background: #c2185b; border-color: #c2185b; color: #fff; }
+.switch { display: flex !important; gap: 12px; align-items: flex-start; cursor: pointer; color: var(--text) !important; }
+.switch input { width: 22px !important; height: 22px; accent-color: #c2185b; margin-top: 2px; }
+.soir-panel { border-color: #c2185b; }
+.promo { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: var(--on-accent); border-radius: calc(var(--radius) + 4px); padding: 22px 26px; display: flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.promo h3 { margin: 0; font-size: 1.5rem; color: var(--on-accent); }
+.promo p { margin: 4px 0 0; }
+.promo .btn { background: var(--bg); color: var(--text) !important; }
+.gift { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gift .card-gift { background: linear-gradient(135deg, #1d1720, #2a2216); border: 1px solid var(--accent); border-radius: 16px; padding: 26px; text-align: center; display: grid; gap: 10px; }
+.card-gift .montant { font-family: var(--font-title); font-size: 2.6rem; color: var(--accent); }
+@media (max-width: 760px) { .gift { grid-template-columns: 1fr; } }

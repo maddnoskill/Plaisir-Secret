@@ -15,12 +15,18 @@
     document.body.insertAdjacentHTML("afterbegin", '<div class="demo-bar">Version de démonstration : les profils et les avis affichés sont des exemples fictifs.</div>');
   }
 
+  // ----- Offre de lancement -----
+  document.querySelectorAll("[data-places]").forEach(function (el) {
+    el.textContent = config.placesLancement != null ? config.placesLancement : 10;
+  });
+
   // ----- Carte d'un membre -----
   function carte(m) {
     return '<a class="pcard" href="' + lienProfil(m) + '">' +
       '<div class="ph"><img src="' + esc(m.photo) + '" alt="Photo de ' + esc(m.nom) + '" loading="lazy">' +
       '<div class="tags">' + (m.verifie ? '<span class="badge ok">✓ Vérifié</span>' : "<span></span>") +
       (m.vip ? '<span class="badge vip">★ VIP</span>' : "") + "</div>" +
+      (m.ceSoir ? '<span class="badge soir">● Dispo ce soir</span>' : "") +
       '<div class="over"><h3>' + esc(m.nom) + (m.age ? ", " + m.age : "") + "</h3><small>📍 " + esc(m.ville) + "</small></div></div>" +
       '<div class="body"><span class="cat">' + esc(m.categorie) + "</span>" +
       '<div class="row"><span>★ ' + m.note.toFixed(1) + " (" + m.avis + ")</span>" +
@@ -29,24 +35,32 @@
 
   function afficherGrille(el, liste) {
     el.innerHTML = liste.length ? liste.map(carte).join("") :
-      '<p class="empty">Aucun membre ne correspond à votre recherche pour l\'instant. Essayez une autre ville ou catégorie.</p>';
+      '<p class="empty">Aucun membre ne correspond à ta recherche pour l\'instant. Essaie une autre ville ou catégorie.</p>';
   }
 
   // ----- Grilles (accueil, membres, VIP) -----
   var grille = $("#grille");
   if (grille) {
     var filtreCat = params.get("cat") || "";
+    var villeFixe = grille.dataset.ville || "";
+    var ceSoirSeulement = params.get("cesoir") === "1";
     var recherche = params.get("q") || "";
     var vipSeulement = grille.dataset.vip === "1";
     var limite = parseInt(grille.dataset.limite || "0", 10);
     var champ = $("#filtre-texte");
     var ville = $("#filtre-ville");
     if (champ) champ.value = recherche;
+    var boutonSoir = $("#filtre-soir");
+    if (boutonSoir) {
+      boutonSoir.classList.toggle("actif", ceSoirSeulement);
+      boutonSoir.addEventListener("click", function () { ceSoirSeulement = !ceSoirSeulement; boutonSoir.classList.toggle("actif", ceSoirSeulement); rendre(); });
+    }
 
     if (ville) {
       Array.from(new Set(membres.map(function (m) { return m.ville; }))).sort().forEach(function (v) {
         ville.insertAdjacentHTML("beforeend", "<option>" + esc(v) + "</option>");
       });
+      if (params.get("ville")) ville.value = params.get("ville");
     }
 
     var chips = $("#chips");
@@ -64,6 +78,8 @@
       var t = sansAccent(champ ? champ.value : recherche);
       var liste = membres.filter(function (m) {
         if (vipSeulement && !m.vip) return false;
+        if (villeFixe && m.ville !== villeFixe) return false;
+        if (ceSoirSeulement && !m.ceSoir) return false;
         if (filtreCat && m.categorie !== filtreCat) return false;
         if (ville && ville.value && m.ville !== ville.value) return false;
         if (t) {
@@ -72,7 +88,7 @@
         }
         return true;
       });
-      liste.sort(function (a, b) { return (b.vip - a.vip) || (b.note - a.note); });
+      liste.sort(function (a, b) { return (!!b.ceSoir - !!a.ceSoir) || (b.vip - a.vip) || (b.note - a.note); });
       if (limite) liste = liste.slice(0, limite);
       afficherGrille(grille, liste);
       if (chips) chips.querySelectorAll(".chip").forEach(function (c) { c.classList.toggle("actif", c.dataset.cat === filtreCat); });
@@ -116,6 +132,7 @@
       '<div class="badges">' +
       (m.verifie ? '<span class="badge ok">✓ Identité vérifiée</span>' : "") +
       (m.vip ? '<span class="badge vip">★ Membre VIP</span>' : "") +
+      (m.ceSoir ? '<span class="badge soir">● Dispo ce soir</span>' : "") +
       '<span class="badge soft">★ ' + m.note.toFixed(1) + " · " + m.avis + " avis</span>" +
       '<span class="badge soft">18+</span></div>' +
       '<div class="block"><h2>À propos</h2><p>' + esc(m.bio) + "</p></div>" +
@@ -174,9 +191,21 @@
     var lien = config[b.dataset.forfait === "vip" ? "stripeForfaitVip" : "stripeForfaitPro"];
     b.addEventListener("click", function () {
       var choix = $('select[name="forfait"]');
-      if (choix) choix.value = b.dataset.forfait === "vip" ? "VIP" : b.dataset.forfait === "pro" ? "Pro" : "Découverte";
+      var cible = b.dataset.forfait === "vip" ? "VIP" : b.dataset.forfait === "pro" ? "Pro" : "Découverte";
+      if (choix) Array.from(choix.options).forEach(function (o) { if (o.text.indexOf(cible) === 0) choix.value = o.value; });
     });
     if (lien && b.dataset.forfait !== "decouverte") { b.href = lien; b.target = "_blank"; b.rel = "noopener"; }
+  });
+
+  // ----- Cartes-cadeaux -----
+  document.querySelectorAll("[data-cadeau]").forEach(function (b) {
+    var montant = b.dataset.cadeau;
+    var lien = config["stripeCadeau" + montant];
+    if (lien) { b.href = lien; b.target = "_blank"; b.rel = "noopener"; return; }
+    b.addEventListener("click", function () {
+      var choix = $('select[name="montant"]');
+      if (choix) choix.value = montant + " $";
+    });
   });
 
   // ----- Fenêtres (écrire, signaler) -----
@@ -199,6 +228,7 @@
     var f = espace;
     f.nom.value = moi.nom; f.ville.value = moi.ville; f.titre.value = moi.titre; f.bio.value = moi.bio;
     f.categorie.value = moi.categorie;
+    if (f.cesoir) f.cesoir.checked = !!moi.ceSoir;
     f.querySelectorAll('input[name="lieux"]').forEach(function (c) { c.checked = moi.lieux.indexOf(c.value) > -1; });
     $("#apercu-photo").src = moi.photo;
     $("#side-photo").src = moi.photo;
@@ -229,6 +259,7 @@
       e.preventDefault();
       moi.nom = f.nom.value; moi.ville = f.ville.value; moi.titre = f.titre.value; moi.bio = f.bio.value;
       moi.categorie = f.categorie.value;
+      if (f.cesoir) moi.ceSoir = f.cesoir.checked;
       moi.lieux = Array.from(f.querySelectorAll('input[name="lieux"]:checked')).map(function (c) { return c.value; });
       var noms = f.querySelectorAll('input[name="svc-nom"]'), prix = f.querySelectorAll('input[name="svc-prix"]');
       moi.services = [];

@@ -45,7 +45,7 @@
       '<footer class="footer"><div class="wrap"><div class="cols">' +
       '<div><a class="logo" href="index.html' + q + '">Plaisir <span>Secret</span></a>' +
       '<p>L\'annuaire québécois des soins, du bien-être et des expériences privées. Des membres vérifiés, du respect, de la discrétion.</p></div>' +
-      "<div><h4>Explorer</h4>" + lien("membres.html", "Tous les membres") + lien("vip.html", "Membres VIP") + lien("membres.html?cat=Massoth%C3%A9rapie", "Massothérapie") + "</div>" +
+      "<div><h4>Explorer</h4>" + lien("membres.html", "Tous les membres") + lien("vip.html", "Membres VIP") + lien("cadeau.html", "🎁 Cartes-cadeaux") + lien("levis.html", "Lévis") + lien("quebec.html", "Québec") + lien("montreal.html", "Montréal") + "</div>" +
       "<div><h4>Membres</h4>" + lien("abonnement.html", "Abonnez-vous") + lien("espace-membre.html", "Mon espace") + lien("soutien.html#securite", "Sécurité") + "</div>" +
       "<div><h4>Aide</h4>" + lien("soutien.html", "Soutien et FAQ") + lien("soutien.html#signaler", "Signaler un profil") + lien("conditions.html", "Conditions d'utilisation") + lien("confidentialite.html", "Confidentialité") + "</div>" +
       "</div>" +

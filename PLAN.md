@@ -1,61 +1,57 @@
 # Plan complet de Plaisir Secret
 
-Mis à jour le 13 novembre 2026. Une **phase** = un grand objectif. Une **étape** = une branche Git (`etape-XX-…`) et une pull request. À la fin de chaque phase : un compte rendu dans `comptes-rendus/`.
+Mis à jour le 13 novembre 2026. Ville de lancement : **Lévis** (Rive-Sud de Québec). Responsable : Mathieu Desbiens.
 
-Légende : ✅ fait · 🟡 en cours · ⏳ à faire · 👤 action de Madd
+Une **phase** = un grand objectif. Une **étape** = une branche Git (`etape-XX-…`) et une pull request. À la fin de chaque phase : un compte rendu dans `comptes-rendus/`.
+
+Légende : ✅ fait · 🟡 code prêt, en attente · ⏳ à faire · 👤 action de Madd
 
 ---
 
-## Phase 1 : Fondations ✅
+## ✅ Phase 1 : Fondations (terminée)
 
-| Étape | Contenu | État |
-|---|---|---|
-| 01 `etape-01-site-vitrine` | Offre, prix, règles légales, site vitrine v1 | ✅ |
-| 02 `etape-02-annuaire-membres` | Annuaire de membres, profils, VIP, Soutien, Abonnez-vous, espace membre, thème velours, mise en ligne publique | ✅ |
+- ✅ Étape 01 : offre, prix, règles légales, site vitrine
+- ✅ Étape 02 : annuaire de membres, thème velours, site public sur plaisir-secret.vercel.app
 
-Compte rendu : `comptes-rendus/phase-1-fondations.md`
+## 🟡 Phase 2 : Encaisser (code prêt, il manque tes comptes)
 
-## Phase 2 : Encaisser tes premiers dollars 🟡 (objectif : 16 au 19 novembre)
+Étape 03 `etape-03-formulaires-et-paiements` (PR #2)
+- ✅ Appli web installable sur cellulaire
+- ✅ Formulaires prêts, ✅ boutons de paiement Stripe prêts
+- 👤 **1.** Créer le compte Formspree et m'envoyer l'adresse `formspree.io/f/…`
+- 👤 **2.** Créer le compte Stripe (le décrire comme « annuaire de services de bien-être, massothérapie, coaching et location d'espaces »)
+- 👤 **3.** Créer dans Stripe les liens : Forfait Pro 19 $/mois, Forfait VIP 49 $/mois, cartes-cadeaux 50 $, 100 $, 200 $
+- 👤 **4.** Confirmer ton courriel de contact (pour les pages légales)
+- ⏳ **5.** Je branche tout et on fait un test complet : réservation → courriel → paiement test de 1 $
 
-| Étape | Contenu | État |
-|---|---|---|
-| 03 `etape-03-formulaires-et-paiements` | Appli web installable sur cellulaire (icône, barre d'onglets, hors ligne) | ✅ |
-| | Formulaires prêts pour Formspree (anti-robots, messages de confirmation) | ✅ code prêt · 👤 créer le compte Formspree et me donner l'adresse |
-| | Paiements Stripe : boutons Forfait Pro et VIP, bouton « Payer en ligne » par service | ✅ code prêt · 👤 créer le compte Stripe et les liens de paiement |
-| | Pages légales complétées (Loi 25) | 👤 ton nom (ou nom d'entreprise) et ton courriel |
-| | Test complet : réservation → courriel reçu → lien de paiement → argent reçu | ⏳ |
+## 🟡 Phase 3 : Lancer à Lévis (code prêt)
 
-## Phase 3 : Lancer pour vrai 🟡 (semaine du 16 novembre)
+Étape 04 `etape-04-domaine-et-lancement` (PR #3)
+- ✅ Accompagnatrices (public seulement), avis vérifiés, référencement Google, guide `LANCEMENT.md`
+- ✅ Offre de lancement (1er mois Pro gratuit, 10 places), bouton « Dispo ce soir », cartes-cadeaux, pages Lévis, Québec, Montréal
+- ✅ Ton nom dans les pages légales
+- 👤 **6.** Fusionner la PR #2, puis la PR #3 sur GitHub
+- 👤 **7.** Acheter le domaine (`plaisir-secret.com` est déjà pris : je recommande `plaisirsecret.ca`) puis me le dire : je le branche
+- 👤 **8.** Recruter 3 à 5 vrais membres à Lévis (message prêt dans le plan de l'étape 1), vérifier leur pièce d'identité
+- ⏳ **9.** Je remplace les profils de démonstration par les vrais, je retire les avis d'exemple et le bandeau démo
+- ⏳ **10.** Google Search Console, fiche Google Business « Plaisir Secret Lévis »
+- ⏳ **11.** Annonce du lancement (Facebook, Instagram, groupes de Lévis) → **compte rendu de la phase 3**
 
-| Étape | Contenu |
-|---|---|
-| 04 `etape-04-domaine-et-lancement` 🟡 | Code prêt : accompagnatrices, système d'avis vérifiés, référencement Google (sitemap, aperçus de partage), guide `LANCEMENT.md`. 👤 Domaine `.ca`, courriel pro |
-| | 👤 Recruter 3 à 5 vrais membres, vérifier leur pièce d'identité, remplacer les profils de démo |
-| | Fiche Google Business, partage Facebook/Instagram, premières publicités locales |
-| | Choix de la ville de lancement 👤 |
+## ⏳ Phase 4 : Automatiser (décembre)
 
-## Phase 4 : Automatiser ⏳ (décembre)
+- ⏳ Étape 05 : vrais comptes membres (connexion, base de données Supabase, le membre gère son profil et son bouton « Dispo ce soir » lui-même)
+- ⏳ Étape 06 : tableau d'administration (approuver profils et avis, signalements, pièces d'identité)
+- ⏳ Étape 07 : messagerie interne et avis par courriel et texto
+- ⏳ Étape 08 : paiement par carte à la réservation, commission prélevée automatiquement
 
-| Étape | Contenu |
-|---|---|
-| 05 `etape-05-comptes-membres` | Vrais comptes (connexion par courriel), base de données Supabase, le membre modifie son profil lui-même |
-| 06 `etape-06-moderation` | Tableau d'administration : approuver les profils, traiter les signalements, vérifier les pièces d'identité |
-| 07 `etape-07-messagerie` | Messagerie interne visiteur ↔ membre, avis par courriel et texto |
-| 08 `etape-08-paiements-auto` | Paiement par carte au moment de réserver, commission prélevée automatiquement, versement automatique au membre |
+## ⏳ Phase 5 : Grandir (janvier et après)
 
-## Phase 5 : Grandir ⏳ (janvier et après)
-
-| Étape | Contenu |
-|---|---|
-| 09 `etape-09-avis-et-reputation` | Avis vérifiés (seulement après une vraie réservation), badges |
-| 10 `etape-10-referencement` | Pages par ville et catégorie pour Google (ex. « massothérapie Laval ») |
-| 11 `etape-11-croissance` | Parrainage membre-à-membre, version anglaise, statistiques de revenus |
+- ⏳ Étape 09 : avis automatiques après chaque réservation, badges de réputation
+- ⏳ Étape 10 : plus de pages par ville et par service (Rive-Sud, Beauce, Bellechasse…)
+- ⏳ Étape 11 : parrainage membre-à-membre, version anglaise, statistiques de revenus
 
 ---
 
 ## ⚠️ Risque à connaître : Stripe
 
-Stripe refuse certaines activités (services de rencontre, escortes, contenu adulte). Notre catégorie « Accompagnement et sorties » peut être mal interprétée. Pour éviter un blocage :
-- décris l'entreprise à Stripe comme « annuaire de services de bien-être, massothérapie, coaching et location d'espaces »;
-- garde les sorties accompagnées strictement en public, comme le prévoient nos conditions;
-- plan B déjà identifié : **Square** ou **Helcim** (entreprise canadienne), ou virement Interac en mode concierge.
+Stripe refuse certaines activités (rencontres, escortes, contenu adulte). Notre catégorie « Accompagnement et sorties » peut être mal interprétée. Décris l'entreprise comme indiqué plus haut; plan B : **Square**, **Helcim** (canadien) ou virement Interac en mode concierge.

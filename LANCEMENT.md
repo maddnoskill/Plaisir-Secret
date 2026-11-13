@@ -1,11 +1,12 @@
 # Guide de lancement (phase 3)
 
-## 1. Ton nom de domaine `.ca` (15 min, environ 15 à 25 $ par année)
+## 1. Ton nom de domaine (15 min, environ 15 à 25 $ par année)
 
-Pourquoi un `.ca` ? Les Québécois lui font plus confiance qu'à une adresse `vercel.app`, et Google le montre en priorité aux gens du Canada.
+⚠️ Vérifié le 13 novembre 2026 : **`plaisir-secret.com` et `plaisirsecret.com` sont déjà pris** par quelqu'un d'autre.
+Libres au même moment : **`plaisirsecret.ca`**, **`plaisir-secret.ca`**, **`plaisirsecret.quebec`**.
+Le `.ca` est le meilleur choix au Québec : les gens lui font confiance et Google le montre en priorité au Canada.
 
-1. Vérifie qu'il est libre sur un registraire canadien, par exemple **Webnames.ca** ou **Namecheap** (le `.ca` exige d'habiter au Canada, c'est ton cas).
-   Idées : `plaisirsecret.ca`, `plaisir-secret.ca`, `plaisirsecretqc.ca`.
+1. Achète-le sur un registraire canadien, par exemple **Webnames.ca** ou **Namecheap**, ou directement dans Vercel (**Domains** > **Buy**).
 2. Achète-le (1 an suffit pour commencer).
 3. Dans Vercel : projet **plaisir-secret** > **Settings** > **Domains** > ajoute `plaisirsecret.ca` et `www.plaisirsecret.ca`.
 4. Vercel t'affiche 2 lignes DNS (un « A » et un « CNAME »). Copie-les dans la zone DNS de ton registraire.

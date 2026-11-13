@@ -7,6 +7,14 @@ window.PLAISIR_SECRET = {
   // Mets false au lancement, quand les vrais membres et les vrais avis sont en ligne.
   demo: true,
 
+  // Offre de lancement : nombre de places « 1er mois Pro gratuit » qu'il reste (affiché sur le site).
+  placesLancement: 10,
+
+  // Cartes-cadeaux : liens de paiement Stripe pour chaque montant (vide = formulaire de commande).
+  stripeCadeau50: "",
+  stripeCadeau100: "",
+  stripeCadeau200: "",
+
   // Adresse publique du site (pour Google et les aperçus de partage).
   urlSite: "https://plaisir-secret.vercel.app",
 
