@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr-CA" data-theme="velours">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon espace · Plaisir Secret</title>
+  <meta name="description" content="Gère ton profil de membre : bio, services, photo et disponibilités.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body data-page="espace">
+<div id="site-header"></div>
+<main>
+
+<div class="wrap"><div class="dash">
+  <nav class="side">
+    <div class="me"><img id="side-photo" src="assets/img/lea.jpg" alt=""><div><strong id="side-nom">Léa</strong><br><small class="muted">✓ Vérifiée · ★ VIP</small></div></div>
+    <a href="#profil-edit" class="actif">Mon profil</a><a href="#services-edit">Mes services</a><a href="#dispo-edit">Mes dispos</a><a href="#">Réservations <span class="badge vip">3</span></a><a href="#">Messages <span class="badge vip">2</span></a><a href="#">Paiements</a><a href="#">Vérification d'identité</a>
+  </nav>
+  <div>
+    <div class="status-row">
+      <div class="stat ok"><strong>✓ Vérifiée</strong><span>Identité confirmée</span></div>
+      <div class="stat"><strong>412</strong><span>visites ce mois-ci</span></div>
+      <div class="stat"><strong>3</strong><span>réservations à venir</span></div>
+      <div class="stat"><strong>1 140 $</strong><span>revenus du mois</span></div>
+    </div>
+    <form id="espace" class="form" style="display:block">
+      <div class="panel" id="profil-edit"><h2>Mon profil</h2><p class="muted">Ce que les visiteurs voient sur ta page.</p>
+        <div class="photo-edit"><img id="apercu-photo" src="assets/img/lea.jpg" alt="Ma photo"><div><label>Changer ma photo<input type="file" id="photo-fichier" accept="image/*"></label><p class="muted" style="font-size:.82rem">Photo récente, visage visible, tenue de ville. Les photos suggestives sont refusées.</p></div></div>
+        <div class="two" style="margin-top:14px"><label>Nom affiché<input name="nom"></label><label>Ville<input name="ville"></label></div>
+        <label style="margin-top:10px">Titre court<input name="titre"></label>
+        <label style="margin-top:10px">Ma bio<textarea name="bio" rows="4"></textarea></label>
+      </div>
+      <div class="panel" id="services-edit"><h2>Mes services</h2><p class="muted">Choisis ta catégorie, où tu offres tes services et tes prix.</p>
+        <label>Catégorie<select name="categorie"><option>Massothérapie</option><option>Soins et bien-être</option><option>Coaching</option><option>Accompagnement et sorties</option><option>Ménage</option><option>Espaces privés</option></select></label>
+        <p class="muted" style="margin:14px 0 6px;font-size:.88rem">Où ?</p>
+        <div class="svc-pick"><label><input type="checkbox" name="lieux" value="En salon"> En salon</label><label><input type="checkbox" name="lieux" value="À domicile"> À domicile</label><label><input type="checkbox" name="lieux" value="En visio"> En visio</label><label><input type="checkbox" name="lieux" value="Sorties en public"> Sorties en public</label><label><input type="checkbox" name="lieux" value="En personne"> En personne</label><label><input type="checkbox" name="lieux" value="Sur place"> Sur place</label></div>
+        <p class="muted" style="margin:14px 0 6px;font-size:.88rem">Services et prix ($)</p>
+        <div id="svc-lignes" style="display:grid;gap:8px"></div>
+        <p><button type="button" class="btn btn-ghost btn-small" id="ajout-svc">+ Ajouter un service</button></p>
+        <p class="legal-note">Les services à domicile sont permis pour la massothérapie thérapeutique, les soins, le coaching, le yoga et le ménage. Tout service sexuel ou érotique est interdit et entraîne le retrait du profil.</p>
+      </div>
+      <div class="panel" id="dispo-edit"><h2>Mes dispos</h2><p class="muted">Les visiteurs voient tes heures sur ta page.</p>
+        <div class="avail" id="dispo-lignes"></div>
+      </div>
+      <button class="btn" type="submit">Enregistrer mon profil</button>
+      <p class="form-status" id="espace-statut" role="status"></p>
+    </form>
+  </div>
+</div></div>
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

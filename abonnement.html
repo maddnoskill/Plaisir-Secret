@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr-CA" data-theme="velours">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Abonnez-vous · Plaisir Secret</title>
+  <meta name="description" content="Devenez membre de Plaisir Secret et offrez vos services aux visiteurs du Québec.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body data-page="abonnement">
+<div id="site-header"></div>
+<main>
+
+<section class="section"><div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">Devenir membre</p><h2>Offre tes services, on s'occupe de la <em>visibilité</em>.</h2></div></div>
+  <div class="plans">
+    <div class="plan"><h3>Découverte</h3><div class="p">0 $</div><p class="muted">Pour commencer sans risque.</p><ul><li>Profil avec 1 photo</li><li>Réservations et messages</li><li>Commission de 20 % par réservation</li></ul><a class="btn btn-ghost" href="#inscription">Choisir</a></div>
+    <div class="plan top"><h3>Pro</h3><div class="p">19 $ <small class="muted">/ mois</small></div><p class="muted">Le plus populaire.</p><ul><li>Jusqu'à 6 photos</li><li>Commission réduite à 15 %</li><li>Statistiques de visites</li><li>Badge ✓ vérifié</li></ul><a class="btn" href="#inscription">Choisir</a></div>
+    <div class="plan"><h3>★ VIP</h3><div class="p">49 $ <small class="muted">/ mois</small></div><p class="muted">Pour être vu en premier.</p><ul><li>Tout le forfait Pro</li><li>Mise en avant sur l'accueil et la page VIP</li><li>Commission de 12 %</li><li>Soutien prioritaire</li></ul><a class="btn btn-ghost" href="#inscription">Choisir</a></div>
+  </div>
+</div></section>
+<section class="section section-alt" id="inscription"><div class="wrap" style="max-width:720px">
+  <h2>Créer mon profil de membre</h2>
+  <p class="muted">On vérifie chaque demande à la main (pièce d'identité + égoportrait) avant la mise en ligne, habituellement en moins de 48 h.</p>
+  <form class="form" data-form="inscription">
+    <input type="hidden" name="_sujet" value="Nouvelle inscription de membre">
+    <div class="two"><label>Prénom ou nom d'artiste<input name="nom" required></label><label>Ville<input name="ville" required></label></div>
+    <div class="two"><label>Courriel<input type="email" name="courriel" required></label><label>Cellulaire<input type="tel" name="telephone" required></label></div>
+    <div class="two"><label>Catégorie<select name="categorie" required><option value="">Choisir…</option><option>Massothérapie</option><option>Soins et bien-être</option><option>Coaching</option><option>Accompagnement et sorties</option><option>Ménage</option><option>Espaces privés</option></select></label>
+    <label>Forfait<select name="forfait"><option>Découverte</option><option>Pro</option><option>VIP</option></select></label></div>
+    <label>Présente tes services (expérience, prix, dispos)<textarea name="presentation" rows="4" required></textarea></label>
+    <label class="check"><input type="checkbox" required> <span>J'ai 18 ans ou plus, je fournirai une pièce d'identité valide et j'offre uniquement des services légaux et non sexuels, comme le prévoient les <a href="conditions.html">conditions d'utilisation</a>.</span></label>
+    <button class="btn" type="submit">Envoyer ma demande</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

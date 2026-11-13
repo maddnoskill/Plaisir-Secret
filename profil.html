@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr-CA" data-theme="velours">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profil · Plaisir Secret</title>
+  <meta name="description" content="Profil d'un membre vérifié de Plaisir Secret : bio, prix, disponibilités et réservation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body data-page="membres">
+<div id="site-header"></div>
+<main>
+
+<div class="wrap" id="profil"></div>
+
+<div class="modal hidden" id="modal-message"><div class="modal-box">
+  <button class="modal-close" aria-label="Fermer">×</button>
+  <h2>Écrire à <span data-nom-membre>ce membre</span></h2>
+  <p class="muted">Ton message passe par Plaisir Secret : ton numéro et ton courriel restent privés jusqu'à ce que tu décides de les partager.</p>
+  <form class="form" data-form="message">
+    <input type="hidden" name="_sujet" value="Nouveau message pour un membre">
+    <input type="hidden" name="membre" value="">
+    <label>Ton prénom<input name="prenom" required></label>
+    <label>Ton courriel<input type="email" name="courriel" required></label>
+    <label>Message<textarea name="message" rows="4" required placeholder="Bonjour, j'aimerais savoir si tu es disponible samedi…"></textarea></label>
+    <p class="legal-note">Les messages sont modérés. Toute demande de nature sexuelle entraîne le bannissement du compte.</p>
+    <button class="btn" type="submit">Envoyer</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></div>
+<div class="modal hidden" id="modal-signaler"><div class="modal-box">
+  <button class="modal-close" aria-label="Fermer">×</button>
+  <h2>Signaler ce profil</h2>
+  <p class="muted">Ton signalement est confidentiel. Notre équipe le traite en moins de 24 h.</p>
+  <form class="form" data-form="signalement">
+    <input type="hidden" name="_sujet" value="Signalement de profil">
+    <input type="hidden" name="membre" value="">
+    <label>Raison<select name="raison" required>
+      <option value="">Choisir…</option><option>Tentative de fraude ou d'arnaque</option><option>Faux profil ou photo volée</option>
+      <option>Offre de services sexuels</option><option>Personne possiblement mineure</option><option>Comportement irrespectueux</option><option>Autre</option></select></label>
+    <label>Détails<textarea name="details" rows="3"></textarea></label>
+    <label>Ton courriel (facultatif)<input type="email" name="courriel"></label>
+    <button class="btn" type="submit">Envoyer le signalement</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></div>
+
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
