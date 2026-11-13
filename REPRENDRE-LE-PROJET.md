@@ -10,7 +10,7 @@ Chaque étape terminée est gardée dans sa propre branche. On ne la modifie plu
 |---|---|---|
 | `etape-01-site-vitrine` | Site vitrine v1 : une page, 4 services, formulaire de réservation | ✅ terminée |
 | `etape-02-annuaire-membres` | Annuaire de membres : accueil avec photos, profils, VIP, soutien, abonnement, espace membre, 4 thèmes | ✅ terminée (thème A « velours » choisi) |
-| `etape-03-formulaires-et-paiements` | Brancher Formspree + liens de paiement Stripe | ⏳ à faire |
+| `etape-03-formulaires-et-paiements` | Appli mobile installable + formulaires Formspree + paiements Stripe | 🟡 code prêt, comptes à créer |
 | `etape-04-domaine-et-lancement` | Nom de domaine .ca, pages légales complétées, vrais membres | ⏳ à faire |
 | `etape-05-comptes-membres` | Vrais comptes membres (connexion, base de données Supabase, modération) | ⏳ à faire |
 
@@ -54,7 +54,11 @@ Quand l'étape est finie, ouvre une *pull request* sur GitHub vers la branche pr
 - ~~Choix du thème~~ : A « velours » choisi le 2026-11-13 (modifiable dans `config.js`).
 - Comptes : Formspree, Stripe, Vercel.
 
-## 5. Où sont les documents du projet
+## 5. Le plan complet
+
+Voir [PLAN.md](PLAN.md) pour toutes les phases et étapes, et `comptes-rendus/` pour le bilan de chaque phase.
+
+## 6. Où sont les documents du projet
 
 - Plan étape 1 (offre, prix, règles) : dans les fichiers du projet Claude, `plaisir-secret/etape-1-offre-et-regles.md`.
 - Prototypes visuels des 4 thèmes : `plaisir-secret/prototypes/`.

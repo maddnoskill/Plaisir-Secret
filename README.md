@@ -48,3 +48,14 @@ Double-clique sur `index.html`. Pour essayer un autre thème : ajoute `?theme=bo
 ## Règle légale non négociable
 
 Aucune annonce de services sexuels (Code criminel du Canada, art. 286.4). Massages thérapeutiques seulement, sorties en public seulement, chaque profil vérifié (18+) et modéré.
+
+## Appli mobile (installable)
+
+Le site est une appli web : sur Android, Chrome propose « Installer l'appli »; sur iPhone, Safari > Partager > « Sur l'écran d'accueil ». Fichiers : `manifest.webmanifest` (nom, icône, couleurs), `sw.js` (mode hors ligne), `assets/icons/`.
+
+## Encaisser avec Stripe
+
+- **Forfaits des membres** : crée deux liens de paiement récurrents dans Stripe (Pro 19 $/mois, VIP 49 $/mois) et colle-les dans `stripeForfaitPro` et `stripeForfaitVip` de `config.js`.
+- **Réservations** : mode concierge. Le visiteur envoie sa demande, le membre confirme, puis tu envoies un lien de paiement Stripe. Pour un bouton « Payer en ligne » directement sur un profil, ajoute `lien: "https://buy.stripe.com/…"` au service dans `data.js`.
+
+Plan complet : [PLAN.md](PLAN.md)

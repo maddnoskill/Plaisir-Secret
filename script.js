@@ -116,7 +116,8 @@
       '<div class="two"><label>Prénom<input name="prenom" required autocomplete="given-name"></label><label>Cellulaire<input type="tel" name="telephone" required autocomplete="tel"></label></div>' +
       '<label>Courriel<input type="email" name="courriel" required autocomplete="email"></label>' +
       '<label class="check"><input type="checkbox" required> <span>J\'ai 18 ans ou plus et j\'accepte les <a href="conditions.html">conditions</a>.</span></label>' +
-      '<button class="btn btn-block" type="submit">Réserver</button>' +
+      '<button class="btn btn-block" type="submit">Demander une réservation</button>' +
+      '<a class="btn btn-ghost btn-block hidden" id="payer" target="_blank" rel="noopener">🔒 Payer en ligne maintenant</a>' +
       '<p class="form-status" role="status"></p></form>' +
       '<div class="contact-row">' +
       '<button class="btn btn-ghost" id="voir-tel">📞 Appeler</button>' +
@@ -129,12 +130,32 @@
       '<button class="report" data-ouvrir="modal-signaler">⚑ Signaler ce profil</button>' +
       "</aside></div>";
 
+    var choix = profil.querySelector('select[name="service"]');
+    var payer = $("#payer");
+    function majPaiement() {
+      var s = m.services[choix.selectedIndex];
+      payer.classList.toggle("hidden", !(s && s.lien));
+      if (s && s.lien) payer.href = s.lien;
+    }
+    choix.addEventListener("change", majPaiement);
+    majPaiement();
+
     $("#voir-tel").addEventListener("click", function () {
       this.outerHTML = '<a class="btn btn-ghost" href="tel:' + m.tel.replace(/\D/g, "") + '">📞 ' + esc(m.tel) + "</a>";
     });
     document.querySelectorAll("[data-nom-membre]").forEach(function (el) { el.textContent = m.nom; });
     document.querySelectorAll('input[name="membre"]').forEach(function (el) { el.value = m.nom + " (" + m.id + ")"; });
   }
+
+  // ----- Boutons des forfaits (liens Stripe si configurés) -----
+  document.querySelectorAll("[data-forfait]").forEach(function (b) {
+    var lien = config[b.dataset.forfait === "vip" ? "stripeForfaitVip" : "stripeForfaitPro"];
+    b.addEventListener("click", function () {
+      var choix = $('select[name="forfait"]');
+      if (choix) choix.value = b.dataset.forfait === "vip" ? "VIP" : b.dataset.forfait === "pro" ? "Pro" : "Découverte";
+    });
+    if (lien && b.dataset.forfait !== "decouverte") { b.href = lien; b.target = "_blank"; b.rel = "noopener"; }
+  });
 
   // ----- Fenêtres (écrire, signaler) -----
   document.addEventListener("click", function (e) {
@@ -202,6 +223,8 @@
 
   // ----- Envoi des formulaires -----
   document.querySelectorAll("form[data-form]").forEach(function (form) {
+    // Piège à robots : champ invisible que seuls les robots remplissent (Formspree le reconnaît).
+    form.insertAdjacentHTML("afterbegin", '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">');
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var status = form.querySelector(".form-status");
@@ -224,7 +247,9 @@
         .then(function (r) {
           if (!r.ok) throw new Error("Envoi refusé");
           form.reset();
-          status.textContent = "Merci ! On te répond en moins de 24 h.";
+          status.textContent = form.dataset.form === "reservation"
+            ? "✓ Demande envoyée ! Le membre confirme sa dispo, puis tu reçois par courriel un lien de paiement sécurisé. Réponse en moins de 24 h."
+            : "✓ Merci ! On te répond en moins de 24 h.";
         })
         .catch(function () { status.textContent = "Oups, l'envoi a échoué. Réessaie ou écris-nous à " + config.contactEmail + "."; })
         .finally(function () { button.disabled = false; });

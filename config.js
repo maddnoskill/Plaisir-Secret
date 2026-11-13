@@ -11,7 +11,14 @@ window.PLAISIR_SECRET = {
   formEndpoint: "",
 
   // Ton courriel de contact (utilisé si formEndpoint est vide).
-  contactEmail: "contact@exemple.ca"
+  contactEmail: "contact@exemple.ca",
+
+  // Liens de paiement Stripe pour les forfaits des membres (abonnement mensuel).
+  // Dans Stripe : Catalogue de produits > créer « Forfait Pro 19 $/mois » > Créer un lien de paiement.
+  // Colle le lien (ex. https://buy.stripe.com/abc123) entre les guillemets.
+  // Tant que c'est vide, le bouton mène au formulaire d'inscription.
+  stripeForfaitPro: "",
+  stripeForfaitVip: ""
 };
 
 // Aperçu d'un autre thème sans rien modifier : ajoute ?theme=nuit à l'adresse.
