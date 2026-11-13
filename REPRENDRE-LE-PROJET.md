@@ -11,7 +11,7 @@ Chaque étape terminée est gardée dans sa propre branche. On ne la modifie plu
 | `etape-01-site-vitrine` | Site vitrine v1 : une page, 4 services, formulaire de réservation | ✅ terminée |
 | `etape-02-annuaire-membres` | Annuaire de membres : accueil avec photos, profils, VIP, soutien, abonnement, espace membre, 4 thèmes | ✅ terminée (thème A « velours » choisi) |
 | `etape-03-formulaires-et-paiements` | Appli mobile installable + formulaires Formspree + paiements Stripe | 🟡 code prêt, comptes à créer |
-| `etape-04-domaine-et-lancement` | Nom de domaine .ca, pages légales complétées, vrais membres | ⏳ à faire |
+| `etape-04-domaine-et-lancement` | Accompagnatrices, avis vérifiés, référencement Google, guide LANCEMENT.md | 🟡 code prêt, domaine et vrais membres à faire |
 | `etape-05-comptes-membres` | Vrais comptes membres (connexion, base de données Supabase, modération) | ⏳ à faire |
 
 ## 2. Reprendre une étape (pas à pas)

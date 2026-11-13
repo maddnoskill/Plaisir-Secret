@@ -45,6 +45,47 @@ window.MEMBRES = [
     tel: "418 555-0177"
   },
   {
+    id: "chloe", nom: "Chloé", age: 28, ville: "Montréal", quartier: "Centre-ville",
+    categorie: "Accompagnement et sorties", titre: "Compagnie pour soupers, spectacles et 5 à 7",
+    photo: "assets/img/chloe.jpg", prix: 75, verifie: true, vip: true,
+    lieux: ["Sorties en public"], note: 4.9, avis: 14, langues: ["Français", "Anglais"],
+    bio: "Bonne conversation, sourire facile et sens du style. Je t'accompagne au restaurant, au théâtre, au Festival de jazz ou à un événement de bureau. Sorties en lieux publics seulement, aucun service intime.",
+    services: [
+      { nom: "Souper au restaurant, 3 h", prix: 210 },
+      { nom: "Spectacle ou festival, 4 h", prix: 270 },
+      { nom: "5 à 7 ou événement de bureau, 2 h", prix: 150 }
+    ],
+    dispo: { lun: "", mar: "18 h à 23 h", mer: "18 h à 23 h", jeu: "18 h à 23 h", ven: "17 h à minuit", sam: "15 h à minuit", dim: "" },
+    tel: "514 555-0173"
+  },
+  {
+    id: "ines", nom: "Inès", age: 30, ville: "Laval", quartier: "Sainte-Dorothée",
+    categorie: "Accompagnement et sorties", titre: "Accompagnatrice de voyage et de mariage",
+    photo: "assets/img/ines.jpg", prix: 85, verifie: true, vip: false,
+    lieux: ["Sorties en public"], note: 4.8, avis: 9, langues: ["Français", "Anglais", "Italien"],
+    bio: "Invité·e à un mariage ou à un party de famille et pas envie d'y aller seul·e ? Je suis une compagnie élégante et attentionnée pour tes événements. Activités publiques seulement, aucun service intime.",
+    services: [
+      { nom: "Mariage ou réception, 6 h", prix: 420 },
+      { nom: "Party de famille ou de Noël, 4 h", prix: 300 },
+      { nom: "Brunch ou activité de jour, 2 h", prix: 140 }
+    ],
+    dispo: { lun: "", mar: "", mer: "", jeu: "16 h à 22 h", ven: "16 h à minuit", sam: "11 h à minuit", dim: "11 h à 20 h" },
+    tel: "450 555-0124"
+  },
+  {
+    id: "rosalie", nom: "Rosalie", age: 34, ville: "Québec", quartier: "Sainte-Foy",
+    categorie: "Accompagnement et sorties", titre: "Accompagnement culturel et visites guidées",
+    photo: "assets/img/rosalie.jpg", prix: 70, verifie: true, vip: false,
+    lieux: ["Sorties en public"], note: 5.0, avis: 11, langues: ["Français", "Anglais"],
+    bio: "Guide touristique de formation, je fais découvrir Québec autrement : musées, cafés cachés, Vieux-Port, Carnaval. Idéal pour les gens de passage ou nouvellement arrivés. Sorties en lieux publics seulement.",
+    services: [
+      { nom: "Visite guidée privée, 2 h", prix: 120 },
+      { nom: "Journée découverte, 5 h", prix: 290 }
+    ],
+    dispo: { lun: "10 h à 17 h", mar: "10 h à 17 h", mer: "", jeu: "", ven: "10 h à 20 h", sam: "9 h à 20 h", dim: "9 h à 17 h" },
+    tel: "418 555-0149"
+  },
+  {
     id: "amara", nom: "Amara", age: 27, ville: "Laval", quartier: "Chomedey",
     categorie: "Soins et bien-être", titre: "Pierres chaudes et aromathérapie",
     photo: "assets/img/amara.jpg", prix: 110, verifie: true, vip: false,
@@ -163,3 +204,42 @@ window.MEMBRES = [
     tel: "514 555-0188"
   }
 ];
+
+// ===== Avis =====
+// Un vrai avis n'est publié qu'après une vraie réservation payée, et après modération.
+// Les avis marqués exemple: true sont des EXEMPLES DE DÉMONSTRATION (fictifs).
+// À SUPPRIMER AU LANCEMENT : mets demo: false dans config.js et vide cette liste.
+window.AVIS = {
+  lea: [
+    { prenom: "Sophie", note: 5, date: "2026-10-28", service: "Massage suédois, 60 min", texte: "Une vraie bulle de calme. Léa est à l'écoute et très professionnelle. Je suis repartie détendue comme jamais.", exemple: true },
+    { prenom: "Marc-André", note: 5, date: "2026-10-12", service: "Massage à domicile, 60 min", texte: "Ponctuelle, table installée en 5 minutes, et mon dos me remercie. Reçu d'assurance envoyé le soir même.", exemple: true }
+  ],
+  maelle: [
+    { prenom: "Jean-François", note: 5, date: "2026-11-02", service: "Gala ou événement, 5 h", texte: "Compagnie charmante et cultivée pour le gala de ma compagnie. Elle a mis tout le monde à l'aise.", exemple: true }
+  ],
+  chloe: [
+    { prenom: "Karim", note: 5, date: "2026-11-05", service: "Spectacle ou festival, 4 h", texte: "Super soirée au théâtre puis au resto. Conversation drôle et intéressante, tout s'est passé exactement comme convenu.", exemple: true },
+    { prenom: "Mathieu", note: 4, date: "2026-10-19", service: "5 à 7 ou événement de bureau, 2 h", texte: "Très élégante et sympathique. Réservation simple et paiement sécurisé, je recommande.", exemple: true }
+  ],
+  ines: [
+    { prenom: "Patrick", note: 5, date: "2026-10-24", service: "Mariage ou réception, 6 h", texte: "Je redoutais ce mariage seul. Inès a été parfaite : souriante, à l'aise avec ma famille, elle a même dansé avec ma tante !", exemple: true }
+  ],
+  rosalie: [
+    { prenom: "Émilie", note: 5, date: "2026-11-01", service: "Journée découverte, 5 h", texte: "On a vu des coins de Québec que je ne connaissais pas après 3 ans ici. Passionnante !", exemple: true }
+  ],
+  sofia: [
+    { prenom: "Julien", note: 5, date: "2026-10-30", service: "Coaching séduction et communication, 60 min", texte: "Des conseils concrets que j'ai appliqués dès mon premier rendez-vous. Bienveillante et directe.", exemple: true }
+  ],
+  amara: [
+    { prenom: "Nathalie", note: 5, date: "2026-11-06", service: "Pierres chaudes, 75 min", texte: "Le meilleur massage aux pierres chaudes que j'ai eu. Le salon est magnifique et le thé délicieux.", exemple: true }
+  ],
+  camille: [
+    { prenom: "Valérie", note: 5, date: "2026-10-21", service: "Soin visage éclat, 60 min", texte: "Ma peau n'a jamais été aussi belle. Camille explique tout ce qu'elle fait, on se sent en confiance.", exemple: true }
+  ],
+  "salon-velours": [
+    { prenom: "Alexandra", note: 5, date: "2026-10-31", service: "Soirée complète, 5 h", texte: "Soirée cinéma pour la fête de mon chum : décor incroyable, propre, accueil impeccable.", exemple: true }
+  ],
+  julie: [
+    { prenom: "Robert", note: 5, date: "2026-11-04", service: "Grand ménage, 5 h", texte: "Maison impeccable, travail minutieux et discret. Je l'ai déjà réservée pour le mois prochain.", exemple: true }
+  ]
+};

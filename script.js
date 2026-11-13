@@ -10,6 +10,11 @@
   function lienProfil(m) { return "profil.html?id=" + encodeURIComponent(m.id) + (theme ? "&theme=" + theme : ""); }
   function sansAccent(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
 
+  // ----- Bandeau démonstration -----
+  if (config.demo) {
+    document.body.insertAdjacentHTML("afterbegin", '<div class="demo-bar">Version de démonstration : les profils et les avis affichés sont des exemples fictifs.</div>');
+  }
+
   // ----- Carte d'un membre -----
   function carte(m) {
     return '<a class="pcard" href="' + lienProfil(m) + '">' +
@@ -78,6 +83,20 @@
     rendre();
   }
 
+  // ----- Avis -----
+  function etoiles(n) { return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n); }
+  function blocAvis(m) {
+    var liste = (window.AVIS || {})[m.id] || [];
+    var html = liste.length ? liste.map(function (a) {
+      return '<div class="avis"><div class="avis-tete"><strong>' + esc(a.prenom) + '</strong><span class="stars">' + etoiles(a.note) + "</span></div>" +
+        '<p>' + esc(a.texte) + "</p>" +
+        '<small class="muted">' + esc(a.service) + " · " + new Date(a.date + "T12:00").toLocaleDateString("fr-CA", { day: "numeric", month: "long", year: "numeric" }) +
+        (a.exemple ? ' · <span class="tag-demo">Exemple de démonstration</span>' : ' · <span class="tag-ok">✓ Réservation vérifiée</span>') + "</small></div>";
+    }).join("") : '<p class="muted">Pas encore d\'avis. Sois la première personne à en laisser un après ta réservation !</p>';
+    return html + '<p style="margin-top:12px"><button class="btn btn-ghost btn-small" data-ouvrir="modal-avis">✍️ Laisser un avis</button></p>' +
+      '<p class="muted" style="font-size:.8rem;margin-top:8px">Seuls les visiteurs qui ont vraiment réservé peuvent laisser un avis. Chaque avis est lu par notre équipe avant d\'être publié.</p>';
+  }
+
   // ----- Page profil -----
   var profil = $("#profil");
   if (profil) {
@@ -105,12 +124,15 @@
       }).join("") + "</div>" +
       '<div class="block"><h2>Où</h2><p>' + m.lieux.map(esc).join(" · ") + " · Langues : " + m.langues.map(esc).join(", ") + "</p></div>" +
       '<div class="block"><h2>Disponibilités</h2><div class="week">' + semaine + "</div></div>" +
+      (m.categorie === "Accompagnement et sorties" ? '<div class="block"><p class="legal-note">🤝 <strong>Compagnie en public seulement.</strong> Soupers, spectacles, événements, visites. Aucun service intime ou sexuel : toute demande de ce genre entraîne le bannissement immédiat (Code criminel, art. 286.1 à 286.4).</p></div>' : "") +
+      '<div class="block" id="avis"><h2>Avis des visiteurs</h2>' + blocAvis(m) + "</div>" +
       "</div>" +
       '<aside class="booking">' +
       '<div class="from">À partir de <b>' + m.prix + " $</b></div>" +
       '<form class="form" data-form="reservation">' +
       '<input type="hidden" name="_sujet" value="Réservation pour ' + esc(m.nom) + '">' +
       '<input type="hidden" name="membre" value="' + esc(m.nom) + " (" + esc(m.id) + ')">' +
+      '<input type="hidden" name="numero" value="PS-' + (1000 + Math.floor(Math.random() * 9000)) + '">' +
       '<label>Service<select name="service" required>' + m.services.map(function (s) { return "<option>" + esc(s.nom) + " · " + s.prix + " $</option>"; }).join("") + "</select></label>" +
       '<div class="two"><label>Date<input type="date" name="date" required></label><label>Heure<input type="time" name="heure" required></label></div>' +
       '<div class="two"><label>Prénom<input name="prenom" required autocomplete="given-name"></label><label>Cellulaire<input type="tel" name="telephone" required autocomplete="tel"></label></div>' +
@@ -248,7 +270,7 @@
           if (!r.ok) throw new Error("Envoi refusé");
           form.reset();
           status.textContent = form.dataset.form === "reservation"
-            ? "✓ Demande envoyée ! Le membre confirme sa dispo, puis tu reçois par courriel un lien de paiement sécurisé. Réponse en moins de 24 h."
+            ? "✓ Demande " + (data.get("numero") || "") + " envoyée ! Garde ce numéro : il te servira pour laisser un avis. Le membre confirme sa dispo, puis tu reçois un lien de paiement sécurisé. Réponse en moins de 24 h."
             : "✓ Merci ! On te répond en moins de 24 h.";
         })
         .catch(function () { status.textContent = "Oups, l'envoi a échoué. Réessaie ou écris-nous à " + config.contactEmail + "."; })

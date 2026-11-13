@@ -25,11 +25,11 @@ Compte rendu : `comptes-rendus/phase-1-fondations.md`
 | | Pages légales complétées (Loi 25) | 👤 ton nom (ou nom d'entreprise) et ton courriel |
 | | Test complet : réservation → courriel reçu → lien de paiement → argent reçu | ⏳ |
 
-## Phase 3 : Lancer pour vrai ⏳ (semaine du 16 novembre)
+## Phase 3 : Lancer pour vrai 🟡 (semaine du 16 novembre)
 
 | Étape | Contenu |
 |---|---|
-| 04 `etape-04-domaine-et-lancement` | Nom de domaine `.ca` (environ 15 $/an) relié à Vercel, courriel pro (ex. bonjour@plaisirsecret.ca) |
+| 04 `etape-04-domaine-et-lancement` 🟡 | Code prêt : accompagnatrices, système d'avis vérifiés, référencement Google (sitemap, aperçus de partage), guide `LANCEMENT.md`. 👤 Domaine `.ca`, courriel pro |
 | | 👤 Recruter 3 à 5 vrais membres, vérifier leur pièce d'identité, remplacer les profils de démo |
 | | Fiche Google Business, partage Facebook/Instagram, premières publicités locales |
 | | Choix de la ville de lancement 👤 |

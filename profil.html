@@ -8,6 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Plaisir Secret">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:title" content="Plaisir Secret · Offre-toi l'expérience dont tu rêves en secret">
+  <meta property="og:description" content="Massothérapie, soins, coaching, accompagnement et salons privés au Québec. Membres vérifiés, paiement sécurisé.">
+  <meta property="og:image" content="https://plaisir-secret.vercel.app/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0e0b0d">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -37,6 +44,22 @@
     <label>Message<textarea name="message" rows="4" required placeholder="Bonjour, j'aimerais savoir si tu es disponible samedi…"></textarea></label>
     <p class="legal-note">Les messages sont modérés. Toute demande de nature sexuelle entraîne le bannissement du compte.</p>
     <button class="btn" type="submit">Envoyer</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></div>
+<div class="modal hidden" id="modal-avis"><div class="modal-box">
+  <button class="modal-close" aria-label="Fermer">×</button>
+  <h2>Laisser un avis à <span data-nom-membre>ce membre</span></h2>
+  <p class="muted">Ton avis aide les autres visiteurs. Il est publié avec ton prénom seulement, après vérification de ta réservation.</p>
+  <form class="form" data-form="avis">
+    <input type="hidden" name="_sujet" value="Nouvel avis à modérer">
+    <input type="hidden" name="membre" value="">
+    <div class="two"><label>Ton prénom<input name="prenom" required></label><label>Numéro de réservation<input name="reservation" required placeholder="Ex. PS-1042"></label></div>
+    <label>Ta note<select name="note" required><option value="5">★★★★★ Excellent</option><option value="4">★★★★☆ Très bien</option><option value="3">★★★☆☆ Correct</option><option value="2">★★☆☆☆ Décevant</option><option value="1">★☆☆☆☆ À éviter</option></select></label>
+    <label>Ton commentaire<textarea name="commentaire" rows="4" required placeholder="Comment s'est passée ton expérience ?"></textarea></label>
+    <label>Ton courriel (jamais publié)<input type="email" name="courriel" required></label>
+    <p class="legal-note">On publie les avis positifs comme négatifs, tant qu'ils sont respectueux et honnêtes. Aucun avis ne peut être acheté ni écrit par le membre lui-même.</p>
+    <button class="btn" type="submit">Envoyer mon avis</button>
     <p class="form-status" role="status"></p>
   </form>
 </div></div>

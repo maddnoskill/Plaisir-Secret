@@ -3,6 +3,13 @@ window.PLAISIR_SECRET = {
   // Thème de couleurs : "velours", "bordeaux", "nuit" ou "creme".
   theme: "velours",
 
+  // Mode démonstration : affiche un bandeau « profils et avis de démonstration ».
+  // Mets false au lancement, quand les vrais membres et les vrais avis sont en ligne.
+  demo: true,
+
+  // Adresse publique du site (pour Google et les aperçus de partage).
+  urlSite: "https://plaisir-secret.vercel.app",
+
   // Adresse qui reçoit les formulaires, fournie par Formspree (gratuit) :
   // 1. Crée un compte sur https://formspree.io
   // 2. Crée un formulaire, puis copie son adresse (ex. https://formspree.io/f/abcdwxyz)
