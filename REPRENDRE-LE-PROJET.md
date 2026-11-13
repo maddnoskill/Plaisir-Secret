@@ -9,7 +9,7 @@ Chaque étape terminée est gardée dans sa propre branche. On ne la modifie plu
 | Branche | Étape | État |
 |---|---|---|
 | `etape-01-site-vitrine` | Site vitrine v1 : une page, 4 services, formulaire de réservation | ✅ terminée |
-| `etape-02-annuaire-membres` | Annuaire de membres : accueil avec photos, profils, VIP, soutien, abonnement, espace membre, 4 thèmes | ✅ terminée (thème à confirmer) |
+| `etape-02-annuaire-membres` | Annuaire de membres : accueil avec photos, profils, VIP, soutien, abonnement, espace membre, 4 thèmes | ✅ terminée (thème A « velours » choisi) |
 | `etape-03-formulaires-et-paiements` | Brancher Formspree + liens de paiement Stripe | ⏳ à faire |
 | `etape-04-domaine-et-lancement` | Nom de domaine .ca, pages légales complétées, vrais membres | ⏳ à faire |
 | `etape-05-comptes-membres` | Vrais comptes membres (connexion, base de données Supabase, modération) | ⏳ à faire |
@@ -51,7 +51,7 @@ Quand l'étape est finie, ouvre une *pull request* sur GitHub vers la branche pr
 
 - Nom et courriel du responsable de la protection des renseignements personnels (pages légales).
 - Ville de lancement.
-- Choix final du thème (A velours, B bordeaux, C nuit, D crème) dans `config.js`.
+- ~~Choix du thème~~ : A « velours » choisi le 2026-11-13 (modifiable dans `config.js`).
 - Comptes : Formspree, Stripe, Vercel.
 
 ## 5. Où sont les documents du projet
