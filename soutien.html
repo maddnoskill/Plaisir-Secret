@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr-CA" data-theme="velours">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soutien · Plaisir Secret</title>
+  <meta name="description" content="Aide, sécurité, conseils antifraude et signalement sur Plaisir Secret.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body data-page="soutien">
+<div id="site-header"></div>
+<main>
+
+<section class="section"><div class="wrap" style="max-width:900px">
+  <p class="eyebrow">Soutien</p><h2>On est là pour toi.</h2>
+  <p class="muted">Une question, un problème avec une réservation ou un profil louche ? Écris-nous, on répond en moins de 24 h, 7 jours sur 7.</p>
+</div></section>
+<section class="section section-alt" id="securite"><div class="wrap"><div class="safety">
+  <div class="item"><div class="ico">🪪</div><h3>Identité vérifiée</h3><p>Chaque membre montre une pièce d'identité et un égoportrait. On confirme qu'il a 18 ans ou plus avant d'afficher le badge ✓.</p></div>
+  <div class="item"><div class="ico">🔒</div><h3>Paiement sécurisé</h3><p>Tu paies par carte via un lien sécurisé (Stripe), seulement après la confirmation. Jamais de carte-cadeau ni de crypto.</p></div>
+  <div class="item"><div class="ico">🛡️</div><h3>Modération humaine</h3><p>Chaque profil et chaque photo sont revus avant la mise en ligne. Aucune annonce de services sexuels n'est tolérée.</p></div>
+  <div class="item"><div class="ico">⚑</div><h3>Signalement en 1 clic</h3><p>Un doute ? Signale le profil. On répond en moins de 24 h et on retire les fraudeurs pour de bon.</p></div>
+</div></div></section>
+<section class="section"><div class="wrap faq" style="max-width:900px">
+  <h2>Questions fréquentes</h2>
+  <details open><summary>Dois-je créer un compte pour réserver ?</summary><p>Non. Tu peux consulter tous les profils et réserver sans compte. On te demande seulement ton prénom, ton cellulaire et ton courriel pour confirmer.</p></details>
+  <details><summary>Comment je paie ?</summary><p>Une fois que le membre confirme, tu reçois un lien de paiement sécurisé (carte de crédit ou de débit). Tu ne paies jamais directement en argent comptant, carte-cadeau ou cryptomonnaie.</p></details>
+  <details><summary>Et si j'annule ?</summary><p>Annulation gratuite jusqu'à 24 h avant. Après, 50 % du montant est retenu pour dédommager le membre.</p></details>
+  <details><summary>Comment savez-vous qu'un membre est fiable ?</summary><p>Pièce d'identité, égoportrait, numéro de cellulaire confirmé et revue manuelle du profil. Les avis viennent uniquement de visiteurs qui ont vraiment réservé.</p></details>
+  <details><summary>Quels services sont interdits ?</summary><p>Tout service sexuel ou érotique. Au Canada, la publicité de services sexuels d'autrui est illégale (Code criminel, art. 286.4). Les massages offerts ici sont thérapeutiques. Tout profil ou message qui enfreint cette règle est retiré et le compte est banni.</p></details>
+  <details><summary>Conseils antifraude</summary><p>Méfie-toi de quiconque demande un paiement à l'avance hors du site, un code de vérification reçu par texto, ou une carte-cadeau. Plaisir Secret ne te demandera jamais ton mot de passe.</p></details>
+</div></section>
+<section class="section section-alt" id="signaler"><div class="wrap" style="max-width:720px">
+  <h2>Nous écrire ou signaler un problème</h2>
+  <form class="form" data-form="soutien">
+    <input type="hidden" name="_sujet" value="Demande de soutien">
+    <div class="two"><label>Prénom<input name="prenom" required></label><label>Courriel<input type="email" name="courriel" required></label></div>
+    <label>Sujet<select name="sujet"><option>Question sur une réservation</option><option>Signaler un profil ou une fraude</option><option>Mon compte de membre</option><option>Autre</option></select></label>
+    <label>Message<textarea name="message" rows="5" required></textarea></label>
+    <button class="btn" type="submit">Envoyer</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,152 +1,55 @@
 <!doctype html>
-<html lang="fr-CA">
+<html lang="fr-CA" data-theme="velours">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plaisir Secret · Expériences et services au Québec</title>
-  <meta name="description" content="Réservez des espaces thématiques, du coaching, des massages thérapeutiques et du ménage à domicile offerts par des prestataires vérifiés au Québec.">
+  <title>Plaisir Secret · Soins, bien-être et expériences privées au Québec</title>
+  <meta name="description" content="Offre-toi l’expérience dont tu rêves en secret : massothérapeutes, coachs, accompagnateurs et espaces privés vérifiés partout au Québec, sans inscription.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Montserrat:wght@600;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="topbar">
-    <a class="logo" href="#accueil">Plaisir <span>Secret</span></a>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#fonctionnement">Comment ça marche</a>
-      <a href="#prestataire">Devenir prestataire</a>
-      <a class="btn btn-small" href="#reserver">Réserver</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="accueil" class="hero">
-      <p class="eyebrow">Québec · Prestataires vérifiés</p>
-      <h1>Offrez-vous l'expérience<br>dont vous rêvez en secret.</h1>
-      <p class="lead">Espaces thématiques, coaching, massage thérapeutique ou ménage à domicile : dites-nous ce que vous désirez, on trouve la bonne personne pour vous.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#reserver">Réserver une expérience</a>
-        <a class="btn btn-ghost" href="#services">Voir les services</a>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <h2>Nos services</h2>
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">✦</div>
-          <h3>Espaces thématiques</h3>
-          <p>Salons décorés, cinéma privé, studio photo, spa privé. À louer à l'heure pour une soirée inoubliable.</p>
-          <p class="price">dès 60 $ / heure</p>
-          <a href="#reserver" data-service="Espace thématique" class="link-book">Réserver →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon">◆</div>
-          <h3>Coaching</h3>
-          <p>Confiance en soi, communication, style, sport ou carrière. Des séances privées en personne ou en visio.</p>
-          <p class="price">dès 50 $ / séance</p>
-          <a href="#reserver" data-service="Coaching" class="link-book">Réserver →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon">❖</div>
-          <h3>Massage en salon</h3>
-          <p>Massage suédois, détente ou sportif par des massothérapeutes membres d'une association reconnue. Thérapeutique et non érotique.</p>
-          <p class="price">dès 80 $ / heure</p>
-          <a href="#reserver" data-service="Massage en salon" class="link-book">Réserver →</a>
-        </article>
-        <article class="card">
-          <div class="card-icon">✧</div>
-          <h3>Ménage à domicile</h3>
-          <p>Ménage régulier, grand ménage ou après déménagement, par des personnes de confiance avec références.</p>
-          <p class="price">dès 30 $ / heure</p>
-          <a href="#reserver" data-service="Ménage à domicile" class="link-book">Réserver →</a>
-        </article>
-      </div>
-    </section>
-
-    <section id="fonctionnement" class="section section-alt">
-      <div class="wrap">
-      <h2>Comment ça marche</h2>
-      <ol class="steps">
-        <li><strong>Vous demandez.</strong> Remplissez le formulaire en 1 minute.</li>
-        <li><strong>On confirme.</strong> Nous vérifions la disponibilité d'un prestataire et vous écrivons sous 24 h.</li>
-        <li><strong>Vous payez en ligne.</strong> Paiement sécurisé, taxes incluses, aucune surprise.</li>
-        <li><strong>Vous profitez.</strong> Discrétion garantie, du début à la fin.</li>
-      </ol>
-      </div>
-    </section>
-
-    <section id="reserver" class="section">
-      <h2>Réserver une expérience</h2>
-      <p class="muted">Aucun paiement maintenant. Nous vous répondons sous 24 h avec une confirmation.</p>
-      <form class="form" data-form="reservation">
-        <input type="hidden" name="_sujet" value="Nouvelle réservation">
-        <label>Service souhaité
-          <select name="service" id="service" required>
-            <option value="">Choisir…</option>
-            <option>Espace thématique</option>
-            <option>Coaching</option>
-            <option>Massage en salon</option>
-            <option>Ménage à domicile</option>
-            <option>Autre envie (décrivez-la)</option>
-          </select>
-        </label>
-        <div class="row">
-          <label>Prénom<input name="prenom" required autocomplete="given-name"></label>
-          <label>Courriel<input type="email" name="courriel" required autocomplete="email"></label>
-        </div>
-        <div class="row">
-          <label>Téléphone<input type="tel" name="telephone" autocomplete="tel"></label>
-          <label>Ville<input name="ville" required autocomplete="address-level2"></label>
-        </div>
-        <div class="row">
-          <label>Date souhaitée<input type="date" name="date" required></label>
-          <label>Heure<input type="time" name="heure"></label>
-        </div>
-        <label>Votre envie, en quelques mots<textarea name="details" rows="4" placeholder="Ex. : soirée cinéma privé pour 2, ambiance années 20"></textarea></label>
-        <label class="check"><input type="checkbox" name="majeur" required> <span>J'ai 18 ans ou plus et j'accepte les <a href="conditions.html">conditions</a> et la <a href="confidentialite.html">politique de confidentialité</a>.</span></label>
-        <button class="btn" type="submit">Envoyer ma demande</button>
-        <p class="form-status" role="status"></p>
-      </form>
-    </section>
-
-    <section id="prestataire" class="section section-alt">
-      <div class="wrap">
-      <h2>Devenir prestataire</h2>
-      <p class="muted">Vous offrez un espace, du coaching, du massage thérapeutique ou du ménage ? Inscription gratuite : vous ne payez qu'une commission quand vous êtes payé.</p>
-      <form class="form" data-form="prestataire">
-        <input type="hidden" name="_sujet" value="Nouveau prestataire">
-        <div class="row">
-          <label>Nom complet<input name="nom" required autocomplete="name"></label>
-          <label>Courriel<input type="email" name="courriel" required autocomplete="email"></label>
-        </div>
-        <div class="row">
-          <label>Téléphone<input type="tel" name="telephone" required autocomplete="tel"></label>
-          <label>Ville<input name="ville" required></label>
-        </div>
-        <label>Service offert
-          <select name="service" required>
-            <option value="">Choisir…</option>
-            <option>Espace thématique</option>
-            <option>Coaching</option>
-            <option>Massage en salon</option>
-            <option>Ménage à domicile</option>
-          </select>
-        </label>
-        <label>Présentez votre offre (expérience, tarifs, disponibilités)<textarea name="presentation" rows="4" required></textarea></label>
-        <label class="check"><input type="checkbox" name="engagement" required> <span>J'ai 18 ans ou plus et je m'engage à offrir uniquement des services légaux et non érotiques.</span></label>
-        <button class="btn" type="submit">Envoyer ma candidature</button>
-        <p class="form-status" role="status"></p>
-      </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© <span id="annee"></span> Plaisir Secret · Québec</p>
-    <p><a href="conditions.html">Conditions d'utilisation</a> · <a href="confidentialite.html">Confidentialité</a></p>
-  </footer>
-
   <script src="config.js"></script>
-  <script src="script.js"></script>
+</head>
+<body data-page="accueil">
+<div id="site-header"></div>
+<main>
+
+<section class="hero"><div class="wrap"><div class="hero-text">
+  <p class="eyebrow">Québec · Membres vérifiés · 18+</p>
+  <h1>Offre-toi l'expérience dont tu rêves <em>en secret</em>.</h1>
+  <p class="lead"><strong>Ici, ce que tu désires reste entre nous.</strong> Massages thérapeutiques, soins, coaching, sorties accompagnées et salons privés. Parcours les profils sans t'inscrire, réserve en 2 minutes.</p>
+  <form class="search mobile-search hidden" action="membres.html"><input name="q" placeholder="Massage, coach, ville…"><button>⌕</button></form>
+  <div class="hero-actions"><a class="btn" href="membres.html">Voir les membres</a><a class="btn btn-ghost" href="abonnement.html">Offrir mes services</a></div>
+  <div class="hero-stats"><div><strong>100 %</strong><span>profils vérifiés</span></div><div><strong>4,9 ★</strong><span>note moyenne</span></div><div><strong>24 h</strong><span>réponse du soutien</span></div></div>
+</div></div></section>
+
+<section class="section"><div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">Les membres</p><h2>Qui veux-tu rencontrer <em>aujourd'hui</em> ?</h2></div><a href="membres.html">Tous les membres →</a></div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grille" data-limite="8"></div>
+</div></section>
+
+<section class="section section-alt" id="securite"><div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">Sérieux et sécurité</p><h2>Ici, pas de place pour la <em>fraude</em>.</h2></div></div>
+  <div class="safety">
+  <div class="item"><div class="ico">🪪</div><h3>Identité vérifiée</h3><p>Chaque membre montre une pièce d'identité et un égoportrait. On confirme qu'il a 18 ans ou plus avant d'afficher le badge ✓.</p></div>
+  <div class="item"><div class="ico">🔒</div><h3>Paiement sécurisé</h3><p>Tu paies par carte via un lien sécurisé (Stripe), seulement après la confirmation. Jamais de carte-cadeau ni de crypto.</p></div>
+  <div class="item"><div class="ico">🛡️</div><h3>Modération humaine</h3><p>Chaque profil et chaque photo sont revus avant la mise en ligne. Aucune annonce de services sexuels n'est tolérée.</p></div>
+  <div class="item"><div class="ico">⚑</div><h3>Signalement en 1 clic</h3><p>Un doute ? Signale le profil. On répond en moins de 24 h et on retire les fraudeurs pour de bon.</p></div>
+</div>
+</div></section>
+
+<section class="section"><div class="wrap"><div class="cta-band">
+  <div><p class="eyebrow">Tu offres un service ?</p><h2>Deviens membre et remplis ton agenda.</h2>
+  <p class="muted">Crée ton profil avec ta photo, ta bio, tes services et tes dispos. Les visiteurs te trouvent, réservent et paient en ligne.</p></div>
+  <div><ul><li>Profil gratuit pour commencer</li><li>Badge ✓ vérifié après validation de ton identité</li><li>Mise en avant VIP en option</li></ul><p><a class="btn" href="abonnement.html">Abonnez-vous</a></p></div>
+</div></div></section>
+
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
