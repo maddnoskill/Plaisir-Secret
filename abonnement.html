@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Abonnez-vous · Plaisir Secret</title>
-  <meta name="description" content="Deviens membre de Plaisir Secret et offre tes services aux visiteurs du Québec.">
+  <title>Abonnez-vous · Désirs Secrets</title>
+  <meta name="description" content="Deviens membre de Désirs Secrets et offre tes services aux visiteurs du Québec.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Désirs Secrets">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:title" content="Désirs Secrets · Offre-toi l'expérience dont tu rêves en secret">
+  <meta property="og:description" content="Massothérapie, soins, coaching, accompagnement et salons privés au Québec. Membres vérifiés, paiement sécurisé.">
+  <meta property="og:image" content="https://plaisir-secret.vercel.app/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0e0b0d">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Plaisir Secret">
+  <meta name="apple-mobile-web-app-title" content="Désirs Secrets">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
   <link rel="stylesheet" href="styles.css">
@@ -23,6 +30,10 @@
 <div id="site-header"></div>
 <main>
 
+<section class="section" style="padding-bottom:0"><div class="wrap"><div class="promo">
+  <div><h3>🚀 Lancement à Lévis : ton 1<sup>er</sup> mois Pro gratuit</h3><p>Offert aux 10 premiers membres. Il reste <strong data-places>10</strong> places.</p></div>
+  <a class="btn" href="abonnement.html#inscription">J'en profite</a>
+</div></div></section>
 <section class="section"><div class="wrap">
   <div class="section-head"><div><p class="eyebrow">Devenir membre</p><h2>Offre tes services, on s'occupe de la <em>visibilité</em>.</h2></div></div>
   <div class="plans">
@@ -39,7 +50,7 @@
     <div class="two"><label>Prénom ou nom d'artiste<input name="nom" required></label><label>Ville<input name="ville" required></label></div>
     <div class="two"><label>Courriel<input type="email" name="courriel" required></label><label>Cellulaire<input type="tel" name="telephone" required></label></div>
     <div class="two"><label>Catégorie<select name="categorie" required><option value="">Choisir…</option><option>Massothérapie</option><option>Soins et bien-être</option><option>Coaching</option><option>Accompagnement et sorties</option><option>Ménage</option><option>Espaces privés</option></select></label>
-    <label>Forfait<select name="forfait"><option>Découverte</option><option>Pro</option><option>VIP</option></select></label></div>
+    <label>Forfait<select name="forfait"><option>Découverte</option><option selected>Pro (1er mois gratuit, offre de lancement)</option><option>VIP</option></select></label></div>
     <label>Présente tes services (expérience, prix, dispos)<textarea name="presentation" rows="4" required></textarea></label>
     <label class="check"><input type="checkbox" required> <span>J'ai 18 ans ou plus, je fournirai une pièce d'identité valide et j'offre uniquement des services légaux et non sexuels, comme le prévoient les <a href="conditions.html">conditions d'utilisation</a>.</span></label>
     <button class="btn" type="submit">Envoyer ma demande</button>

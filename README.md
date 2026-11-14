@@ -1,4 +1,4 @@
-# Plaisir Secret
+# Désirs Secrets
 
 Annuaire québécois de **membres vérifiés** qui offrent des soins, du bien-être et des expériences privées (massothérapie thérapeutique, soins, coaching, sorties accompagnées, ménage, espaces privés). Les **visiteurs** consultent les profils sans compte et réservent en ligne.
 
@@ -41,6 +41,8 @@ Double-clique sur `index.html`. Pour essayer un autre thème : ajoute `?theme=bo
 3. Chaque modification poussée sur GitHub met le site à jour automatiquement. Chaque branche obtient sa propre adresse d'aperçu.
 
 ## Recevoir les formulaires
+
+Par défaut, les formulaires passent par FormSubmit vers maddnoskill@gmail.com (aucun compte requis : cliquer « Activate form » dans le premier courriel reçu). Pour passer à Formspree :
 
 1. Crée un compte gratuit sur https://formspree.io et un nouveau formulaire.
 2. Copie son adresse (ex. `https://formspree.io/f/abcdwxyz`) dans `formEndpoint` de `config.js`.

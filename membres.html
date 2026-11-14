@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Membres · Plaisir Secret</title>
-  <meta name="description" content="Tous les membres vérifiés de Plaisir Secret au Québec : massothérapie, soins, coaching, sorties, ménage et espaces privés.">
+  <title>Membres · Désirs Secrets</title>
+  <meta name="description" content="Tous les membres vérifiés de Désirs Secrets au Québec : massothérapie, soins, coaching, sorties, ménage et espaces privés.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Désirs Secrets">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:title" content="Désirs Secrets · Offre-toi l'expérience dont tu rêves en secret">
+  <meta property="og:description" content="Massothérapie, soins, coaching, accompagnement et salons privés au Québec. Membres vérifiés, paiement sécurisé.">
+  <meta property="og:image" content="https://plaisir-secret.vercel.app/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0e0b0d">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Plaisir Secret">
+  <meta name="apple-mobile-web-app-title" content="Désirs Secrets">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
   <link rel="stylesheet" href="styles.css">
@@ -26,6 +33,7 @@
 <section class="section"><div class="wrap">
   <div class="section-head"><div><p class="eyebrow">Annuaire</p><h2>Nos membres</h2></div><span class="muted" id="compte"></span></div>
   <div class="form" style="grid-template-columns:2fr 1fr;margin-bottom:18px"><input id="filtre-texte" placeholder="Rechercher un nom, un service, un quartier…"><select id="filtre-ville"><option value="">Toutes les villes</option></select></div>
+  <p><button type="button" class="chip" id="filtre-soir">● Dispo ce soir</button></p>
   <div class="chips" id="chips"></div>
   <div class="grid" id="grille"></div>
 </div></section>

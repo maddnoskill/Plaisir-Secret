@@ -3,17 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Mon espace · Plaisir Secret</title>
+  <title>Mon espace · Désirs Secrets</title>
   <meta name="description" content="Gère ton profil de membre : bio, services, photo et disponibilités.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Désirs Secrets">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:title" content="Désirs Secrets · Offre-toi l'expérience dont tu rêves en secret">
+  <meta property="og:description" content="Massothérapie, soins, coaching, accompagnement et salons privés au Québec. Membres vérifiés, paiement sécurisé.">
+  <meta property="og:image" content="https://plaisir-secret.vercel.app/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0e0b0d">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Plaisir Secret">
+  <meta name="apple-mobile-web-app-title" content="Désirs Secrets">
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
   <link rel="stylesheet" href="styles.css">
@@ -36,6 +43,7 @@
       <div class="stat"><strong>1 140 $</strong><span>revenus du mois</span></div>
     </div>
     <form id="espace" class="form" style="display:block">
+      <div class="panel soir-panel"><label class="switch"><input type="checkbox" name="cesoir"> <span><strong>● Je suis disponible ce soir</strong><br><small class="muted">Ton profil remonte en haut de l'annuaire avec le badge « Dispo ce soir ». Pense à l'enregistrer.</small></span></label></div>
       <div class="panel" id="profil-edit"><h2>Mon profil</h2><p class="muted">Ce que les visiteurs voient sur ta page.</p>
         <div class="photo-edit"><img id="apercu-photo" src="assets/img/lea.jpg" alt="Ma photo"><div><label>Changer ma photo<input type="file" id="photo-fichier" accept="image/*"></label><p class="muted" style="font-size:.82rem">Photo récente, visage visible, tenue de ville. Les photos suggestives sont refusées.</p></div></div>
         <div class="two" style="margin-top:14px"><label>Nom affiché<input name="nom"></label><label>Ville<input name="ville"></label></div>
