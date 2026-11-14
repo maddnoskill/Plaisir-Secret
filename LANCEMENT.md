@@ -10,7 +10,7 @@ Plan : `desirs-secrets.ca` comme adresse principale (le `.ca` inspire confiance 
 3. Dans Vercel : projet **plaisir-secret** > **Settings** > **Domains** > ajoute `desirs-secrets.ca`, `www.desirs-secrets.ca` et `desirs-secrets.com` (Vercel propose de le rediriger vers le `.ca`).
 4. Vercel t'affiche 2 lignes DNS (un « A » et un « CNAME »). Copie-les dans la zone DNS de ton registraire.
 5. Attends de 10 minutes à quelques heures. Le cadenas HTTPS est automatique et gratuit.
-6. Dans `config.js`, remplace `urlSite`, et dans `robots.txt` et `sitemap.xml`, remplace `plaisir-secret.vercel.app` par ton domaine.
+6. Dans `config.js`, remplace `urlSite`, et dans `robots.txt` et `sitemap.xml`, remplace `desirs-secrets.vercel.app` par ton domaine.
 
 Note : le projet Vercel s'appelle encore `plaisir-secret` (le dépôt GitHub est déjà renommé `desirs-secrets`). Ça n'a aucun impact pour les visiteurs.
 

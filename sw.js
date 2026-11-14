@@ -1,6 +1,6 @@
 // Service worker : rend le site installable et utilisable même avec un réseau faible.
 // Change VERSION à chaque grosse mise à jour pour forcer le rafraîchissement.
-var VERSION = "ds-v6";
+var VERSION = "ds-v7";
 var FICHIERS = [
   "/", "/index.html", "/membres.html", "/vip.html", "/profil.html", "/soutien.html",
   "/abonnement.html", "/espace-membre.html", "/conditions.html", "/confidentialite.html", "/cadeau.html", "/levis.html",

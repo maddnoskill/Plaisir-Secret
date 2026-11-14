@@ -16,7 +16,7 @@ window.DESIRS_SECRETS = {
   stripeCadeau200: "",
 
   // Adresse publique du site (pour Google et les aperçus de partage).
-  urlSite: "https://plaisir-secret.vercel.app",
+  urlSite: "https://desirs-secrets.vercel.app",
 
   // Adresse qui reçoit les formulaires, fournie par Formspree (gratuit) :
   // 1. Crée un compte sur https://formspree.io

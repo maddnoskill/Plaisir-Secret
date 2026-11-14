@@ -1,6 +1,7 @@
 # Reprendre le projet Désirs Secrets
 
 Le projet s'appelle **Désirs Secrets** depuis le 13 novembre 2026 (anciennement Plaisir Secret). Dépôt GitHub : `maddnoskill/desirs-secrets`. Le projet Vercel s'appelle encore `plaisir-secret`.
+Adresse publique : https://desirs-secrets.vercel.app (l'ancienne adresse plaisir-secret.vercel.app redirige vers elle grâce à `vercel.json`).
 
 Ce guide permet à **n'importe qui** (toi, un ami, un développeur, une IA) de reprendre le projet à n'importe quelle étape.
 

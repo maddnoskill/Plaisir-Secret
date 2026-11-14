@@ -1,6 +1,6 @@
 # Plan d'action · Désirs Secrets
 
-Mis à jour le 13 novembre 2026, 19 h 30 (heure de l'Est). **Étapes 3 et 4 en ligne** sur https://plaisir-secret.vercel.app
+Mis à jour le 13 novembre 2026, 19 h 30 (heure de l'Est). **Étapes 3 et 4 en ligne** sur https://desirs-secrets.vercel.app
 Responsable : Mathieu Desbiens (maddnoskill@gmail.com) · Ville de lancement : **Lévis** · Domaine visé : **desirs-secrets.ca** (+ desirs-secrets.com en redirection)
 
 Une **phase** = un grand objectif. Une **étape** = une branche Git et une pull request. Un compte rendu à la fin de chaque phase dans `comptes-rendus/`.
@@ -22,7 +22,7 @@ Légende : ✅ fait · 🟡 en cours · ⏳ à faire · 👤 action de Madd · �
 ## ✅ Phase 1 : Fondations (100 %)
 
 - ✅ Étape 01 : offre, prix, règles légales, site vitrine
-- ✅ Étape 02 : annuaire de membres, thème velours, site public (plaisir-secret.vercel.app)
+- ✅ Étape 02 : annuaire de membres, thème velours, site public (desirs-secrets.vercel.app)
 - ✅ Compte rendu : `comptes-rendus/phase-1-fondations.md`
 
 ## 🟡 Phase 2 : Encaisser (85 %)

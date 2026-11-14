@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /espace-membre.html
-Sitemap: https://plaisir-secret.vercel.app/sitemap.xml
+Sitemap: https://desirs-secrets.vercel.app/sitemap.xml
