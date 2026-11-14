@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr-CA" data-theme="velours">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cartes-cadeaux · Désirs Secrets</title>
+  <meta name="description" content="Offre une expérience en cadeau : massage, soin, coaching ou sortie. Carte-cadeau Désirs Secrets valable 12 mois partout au Québec.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Désirs Secrets">
+  <meta property="og:locale" content="fr_CA">
+  <meta property="og:title" content="Désirs Secrets · Offre-toi l'expérience dont tu rêves en secret">
+  <meta property="og:description" content="Massothérapie, soins, coaching, accompagnement et salons privés au Québec. Membres vérifiés, paiement sécurisé.">
+  <meta property="og:image" content="https://plaisir-secret.vercel.app/assets/img/partage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0e0b0d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Désirs Secrets">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+</head>
+<body data-page="cadeau">
+<div id="site-header"></div>
+<main>
+
+<section class="section"><div class="wrap">
+  <div class="section-head"><div><p class="eyebrow">🎁 Cartes-cadeaux</p><h2>Offre une expérience, <em>pas un objet</em>.</h2>
+  <p class="muted">Un massage, un soin, un coaching ou une soirée accompagnée : la personne choisit elle-même son membre et sa date. Valable 12 mois, utilisable chez tous les membres.</p></div></div>
+  <div class="gift">
+    <div class="card-gift"><span class="eyebrow">Douceur</span><div class="montant">50 $</div><p class="muted">Un soin ou une séance de coaching</p><a class="btn" data-cadeau="50" href="#commande">Offrir</a></div>
+    <div class="card-gift"><span class="eyebrow">Évasion</span><div class="montant">100 $</div><p class="muted">Un massage d'une heure ou une sortie</p><a class="btn" data-cadeau="100" href="#commande">Offrir</a></div>
+    <div class="card-gift"><span class="eyebrow">Prestige</span><div class="montant">200 $</div><p class="muted">Un rituel complet ou une soirée en salon privé</p><a class="btn" data-cadeau="200" href="#commande">Offrir</a></div>
+  </div>
+</div></section>
+<section class="section section-alt" id="commande"><div class="wrap" style="max-width:720px">
+  <h2>Commander une carte-cadeau</h2>
+  <p class="muted">On t'envoie la carte par courriel (PDF élégant à imprimer ou à transférer) avec un code unique, dès la réception du paiement sécurisé.</p>
+  <form class="form" data-form="cadeau">
+    <input type="hidden" name="_sujet" value="Commande de carte-cadeau">
+    <div class="two"><label>Montant<select name="montant" required><option>50 $</option><option selected>100 $</option><option>200 $</option><option>Autre montant</option></select></label><label>Livraison<select name="livraison"><option>Par courriel à moi</option><option>Par courriel à la personne</option></select></label></div>
+    <div class="two"><label>Ton prénom<input name="prenom" required></label><label>Ton courriel<input type="email" name="courriel" required></label></div>
+    <div class="two"><label>Pour (prénom)<input name="pour" required></label><label>Son courriel (facultatif)<input type="email" name="courriel_destinataire"></label></div>
+    <label>Petit mot (facultatif)<textarea name="mot" rows="3" placeholder="Bonne fête ! Offre-toi un moment juste pour toi."></textarea></label>
+    <label class="check"><input type="checkbox" required> <span>La personne qui recevra la carte a 18 ans ou plus.</span></label>
+    <button class="btn" type="submit">Commander</button>
+    <p class="form-status" role="status"></p>
+  </form>
+</div></section>
+</main>
+<div id="site-footer"></div>
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

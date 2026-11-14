@@ -1,5 +1,5 @@
 (function () {
-  var config = window.PLAISIR_SECRET || {};
+  var config = window.DESIRS_SECRETS || {};
   var membres = window.MEMBRES || [];
   var params = new URLSearchParams(location.search);
   var theme = params.get("theme");
@@ -10,12 +10,23 @@
   function lienProfil(m) { return "profil.html?id=" + encodeURIComponent(m.id) + (theme ? "&theme=" + theme : ""); }
   function sansAccent(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
 
+  // ----- Bandeau démonstration -----
+  if (config.demo) {
+    document.body.insertAdjacentHTML("afterbegin", '<div class="demo-bar">Version de démonstration : les profils et les avis affichés sont des exemples fictifs.</div>');
+  }
+
+  // ----- Offre de lancement -----
+  document.querySelectorAll("[data-places]").forEach(function (el) {
+    el.textContent = config.placesLancement != null ? config.placesLancement : 10;
+  });
+
   // ----- Carte d'un membre -----
   function carte(m) {
     return '<a class="pcard" href="' + lienProfil(m) + '">' +
       '<div class="ph"><img src="' + esc(m.photo) + '" alt="Photo de ' + esc(m.nom) + '" loading="lazy">' +
       '<div class="tags">' + (m.verifie ? '<span class="badge ok">✓ Vérifié</span>' : "<span></span>") +
       (m.vip ? '<span class="badge vip">★ VIP</span>' : "") + "</div>" +
+      (m.ceSoir ? '<span class="badge soir">● Dispo ce soir</span>' : "") +
       '<div class="over"><h3>' + esc(m.nom) + (m.age ? ", " + m.age : "") + "</h3><small>📍 " + esc(m.ville) + "</small></div></div>" +
       '<div class="body"><span class="cat">' + esc(m.categorie) + "</span>" +
       '<div class="row"><span>★ ' + m.note.toFixed(1) + " (" + m.avis + ")</span>" +
@@ -24,24 +35,32 @@
 
   function afficherGrille(el, liste) {
     el.innerHTML = liste.length ? liste.map(carte).join("") :
-      '<p class="empty">Aucun membre ne correspond à votre recherche pour l\'instant. Essayez une autre ville ou catégorie.</p>';
+      '<p class="empty">Aucun membre ne correspond à ta recherche pour l\'instant. Essaie une autre ville ou catégorie.</p>';
   }
 
   // ----- Grilles (accueil, membres, VIP) -----
   var grille = $("#grille");
   if (grille) {
     var filtreCat = params.get("cat") || "";
+    var villeFixe = grille.dataset.ville || "";
+    var ceSoirSeulement = params.get("cesoir") === "1";
     var recherche = params.get("q") || "";
     var vipSeulement = grille.dataset.vip === "1";
     var limite = parseInt(grille.dataset.limite || "0", 10);
     var champ = $("#filtre-texte");
     var ville = $("#filtre-ville");
     if (champ) champ.value = recherche;
+    var boutonSoir = $("#filtre-soir");
+    if (boutonSoir) {
+      boutonSoir.classList.toggle("actif", ceSoirSeulement);
+      boutonSoir.addEventListener("click", function () { ceSoirSeulement = !ceSoirSeulement; boutonSoir.classList.toggle("actif", ceSoirSeulement); rendre(); });
+    }
 
     if (ville) {
       Array.from(new Set(membres.map(function (m) { return m.ville; }))).sort().forEach(function (v) {
         ville.insertAdjacentHTML("beforeend", "<option>" + esc(v) + "</option>");
       });
+      if (params.get("ville")) ville.value = params.get("ville");
     }
 
     var chips = $("#chips");
@@ -59,6 +78,8 @@
       var t = sansAccent(champ ? champ.value : recherche);
       var liste = membres.filter(function (m) {
         if (vipSeulement && !m.vip) return false;
+        if (villeFixe && m.ville !== villeFixe) return false;
+        if (ceSoirSeulement && !m.ceSoir) return false;
         if (filtreCat && m.categorie !== filtreCat) return false;
         if (ville && ville.value && m.ville !== ville.value) return false;
         if (t) {
@@ -67,7 +88,7 @@
         }
         return true;
       });
-      liste.sort(function (a, b) { return (b.vip - a.vip) || (b.note - a.note); });
+      liste.sort(function (a, b) { return (!!b.ceSoir - !!a.ceSoir) || (b.vip - a.vip) || (b.note - a.note); });
       if (limite) liste = liste.slice(0, limite);
       afficherGrille(grille, liste);
       if (chips) chips.querySelectorAll(".chip").forEach(function (c) { c.classList.toggle("actif", c.dataset.cat === filtreCat); });
@@ -78,11 +99,25 @@
     rendre();
   }
 
+  // ----- Avis -----
+  function etoiles(n) { return "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n); }
+  function blocAvis(m) {
+    var liste = (window.AVIS || {})[m.id] || [];
+    var html = liste.length ? liste.map(function (a) {
+      return '<div class="avis"><div class="avis-tete"><strong>' + esc(a.prenom) + '</strong><span class="stars">' + etoiles(a.note) + "</span></div>" +
+        '<p>' + esc(a.texte) + "</p>" +
+        '<small class="muted">' + esc(a.service) + " · " + new Date(a.date + "T12:00").toLocaleDateString("fr-CA", { day: "numeric", month: "long", year: "numeric" }) +
+        (a.exemple ? ' · <span class="tag-demo">Exemple de démonstration</span>' : ' · <span class="tag-ok">✓ Réservation vérifiée</span>') + "</small></div>";
+    }).join("") : '<p class="muted">Pas encore d\'avis. Sois la première personne à en laisser un après ta réservation !</p>';
+    return html + '<p style="margin-top:12px"><button class="btn btn-ghost btn-small" data-ouvrir="modal-avis">✍️ Laisser un avis</button></p>' +
+      '<p class="muted" style="font-size:.8rem;margin-top:8px">Seuls les visiteurs qui ont vraiment réservé peuvent laisser un avis. Chaque avis est lu par notre équipe avant d\'être publié.</p>';
+  }
+
   // ----- Page profil -----
   var profil = $("#profil");
   if (profil) {
     var m = membres.find(function (x) { return x.id === params.get("id"); }) || membres[0];
-    document.title = m.nom + " · " + m.categorie + " à " + m.ville + " · Plaisir Secret";
+    document.title = m.nom + " · " + m.categorie + " à " + m.ville + " · Désirs Secrets";
     var semaine = jours.map(function (j) {
       var h = m.dispo[j];
       return '<div class="' + (h ? "" : "off") + '"><strong>' + j + "</strong>" + (h ? esc(h).replace(" à ", "<br>à ") : "—") + "</div>";
@@ -97,6 +132,7 @@
       '<div class="badges">' +
       (m.verifie ? '<span class="badge ok">✓ Identité vérifiée</span>' : "") +
       (m.vip ? '<span class="badge vip">★ Membre VIP</span>' : "") +
+      (m.ceSoir ? '<span class="badge soir">● Dispo ce soir</span>' : "") +
       '<span class="badge soft">★ ' + m.note.toFixed(1) + " · " + m.avis + " avis</span>" +
       '<span class="badge soft">18+</span></div>' +
       '<div class="block"><h2>À propos</h2><p>' + esc(m.bio) + "</p></div>" +
@@ -105,12 +141,15 @@
       }).join("") + "</div>" +
       '<div class="block"><h2>Où</h2><p>' + m.lieux.map(esc).join(" · ") + " · Langues : " + m.langues.map(esc).join(", ") + "</p></div>" +
       '<div class="block"><h2>Disponibilités</h2><div class="week">' + semaine + "</div></div>" +
+      (m.categorie === "Accompagnement et sorties" ? '<div class="block"><p class="legal-note">🤝 <strong>Compagnie en public seulement.</strong> Soupers, spectacles, événements, visites. Aucun service intime ou sexuel : toute demande de ce genre entraîne le bannissement immédiat (Code criminel, art. 286.1 à 286.4).</p></div>' : "") +
+      '<div class="block" id="avis"><h2>Avis des visiteurs</h2>' + blocAvis(m) + "</div>" +
       "</div>" +
       '<aside class="booking">' +
       '<div class="from">À partir de <b>' + m.prix + " $</b></div>" +
       '<form class="form" data-form="reservation">' +
       '<input type="hidden" name="_sujet" value="Réservation pour ' + esc(m.nom) + '">' +
       '<input type="hidden" name="membre" value="' + esc(m.nom) + " (" + esc(m.id) + ')">' +
+      '<input type="hidden" name="numero" value="DS-' + (1000 + Math.floor(Math.random() * 9000)) + '">' +
       '<label>Service<select name="service" required>' + m.services.map(function (s) { return "<option>" + esc(s.nom) + " · " + s.prix + " $</option>"; }).join("") + "</select></label>" +
       '<div class="two"><label>Date<input type="date" name="date" required></label><label>Heure<input type="time" name="heure" required></label></div>' +
       '<div class="two"><label>Prénom<input name="prenom" required autocomplete="given-name"></label><label>Cellulaire<input type="tel" name="telephone" required autocomplete="tel"></label></div>' +
@@ -125,7 +164,7 @@
       '<p class="secure-note">🔒 Paiement par carte via un lien sécurisé, seulement après la confirmation du membre. Annulation gratuite jusqu\'à 24 h avant.</p>' +
       '<div class="tips"><strong>Conseils antifraude</strong><ul>' +
       "<li>Ne paie jamais par carte-cadeau, cryptomonnaie ou virement à l'avance hors du site.</li>" +
-      "<li>Plaisir Secret ne te demandera jamais ton mot de passe.</li>" +
+      "<li>Désirs Secrets ne te demandera jamais ton mot de passe.</li>" +
       "<li>Un prix trop beau pour être vrai ? Signale-le.</li></ul></div>" +
       '<button class="report" data-ouvrir="modal-signaler">⚑ Signaler ce profil</button>' +
       "</aside></div>";
@@ -152,9 +191,21 @@
     var lien = config[b.dataset.forfait === "vip" ? "stripeForfaitVip" : "stripeForfaitPro"];
     b.addEventListener("click", function () {
       var choix = $('select[name="forfait"]');
-      if (choix) choix.value = b.dataset.forfait === "vip" ? "VIP" : b.dataset.forfait === "pro" ? "Pro" : "Découverte";
+      var cible = b.dataset.forfait === "vip" ? "VIP" : b.dataset.forfait === "pro" ? "Pro" : "Découverte";
+      if (choix) Array.from(choix.options).forEach(function (o) { if (o.text.indexOf(cible) === 0) choix.value = o.value; });
     });
     if (lien && b.dataset.forfait !== "decouverte") { b.href = lien; b.target = "_blank"; b.rel = "noopener"; }
+  });
+
+  // ----- Cartes-cadeaux -----
+  document.querySelectorAll("[data-cadeau]").forEach(function (b) {
+    var montant = b.dataset.cadeau;
+    var lien = config["stripeCadeau" + montant];
+    if (lien) { b.href = lien; b.target = "_blank"; b.rel = "noopener"; return; }
+    b.addEventListener("click", function () {
+      var choix = $('select[name="montant"]');
+      if (choix) choix.value = montant + " $";
+    });
   });
 
   // ----- Fenêtres (écrire, signaler) -----
@@ -169,7 +220,7 @@
   // ----- Espace membre (démo, enregistré dans ce navigateur) -----
   var espace = $("#espace");
   if (espace) {
-    var cle = "plaisir-secret-mon-profil";
+    var cle = "desirs-secrets-mon-profil";
     var moi;
     try { moi = JSON.parse(localStorage.getItem(cle)); } catch (err) { moi = null; }
     if (!moi) moi = JSON.parse(JSON.stringify(membres[0]));
@@ -177,6 +228,7 @@
     var f = espace;
     f.nom.value = moi.nom; f.ville.value = moi.ville; f.titre.value = moi.titre; f.bio.value = moi.bio;
     f.categorie.value = moi.categorie;
+    if (f.cesoir) f.cesoir.checked = !!moi.ceSoir;
     f.querySelectorAll('input[name="lieux"]').forEach(function (c) { c.checked = moi.lieux.indexOf(c.value) > -1; });
     $("#apercu-photo").src = moi.photo;
     $("#side-photo").src = moi.photo;
@@ -207,6 +259,7 @@
       e.preventDefault();
       moi.nom = f.nom.value; moi.ville = f.ville.value; moi.titre = f.titre.value; moi.bio = f.bio.value;
       moi.categorie = f.categorie.value;
+      if (f.cesoir) moi.ceSoir = f.cesoir.checked;
       moi.lieux = Array.from(f.querySelectorAll('input[name="lieux"]:checked')).map(function (c) { return c.value; });
       var noms = f.querySelectorAll('input[name="svc-nom"]'), prix = f.querySelectorAll('input[name="svc-prix"]');
       moi.services = [];
@@ -235,7 +288,7 @@
         var lines = [];
         data.forEach(function (value, key) { if (key.charAt(0) !== "_") lines.push(key + " : " + value); });
         window.location.href = "mailto:" + config.contactEmail +
-          "?subject=" + encodeURIComponent(data.get("_sujet") || "Plaisir Secret") +
+          "?subject=" + encodeURIComponent(data.get("_sujet") || "Désirs Secrets") +
           "&body=" + encodeURIComponent(lines.join("\n"));
         status.textContent = "Ton application courriel s'ouvre. Envoie le message pour finaliser.";
         return;
@@ -243,12 +296,20 @@
 
       button.disabled = true;
       status.textContent = "Envoi en cours…";
+      if (config.formEndpoint.indexOf("formsubmit.co") > -1) {
+        data.set("_subject", "Désirs Secrets : " + (data.get("_sujet") || "Nouveau message"));
+        data.set("_template", "table");
+        data.set("_captcha", "false");
+        data.set("_honey", data.get("_gotcha") || "");
+        if (data.get("courriel")) data.set("_replyto", data.get("courriel"));
+      }
       fetch(config.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (r) {
-          if (!r.ok) throw new Error("Envoi refusé");
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (rep) { return { ok: r.ok, rep: rep }; }); })
+        .then(function (res) {
+          if (!res.ok || res.rep.success === false || res.rep.success === "false") throw new Error("Envoi refusé");
           form.reset();
           status.textContent = form.dataset.form === "reservation"
-            ? "✓ Demande envoyée ! Le membre confirme sa dispo, puis tu reçois par courriel un lien de paiement sécurisé. Réponse en moins de 24 h."
+            ? "✓ Demande " + (data.get("numero") || "") + " envoyée ! Garde ce numéro : il te servira pour laisser un avis. Le membre confirme sa dispo, puis tu reçois un lien de paiement sécurisé. Réponse en moins de 24 h."
             : "✓ Merci ! On te répond en moins de 24 h.";
         })
         .catch(function () { status.textContent = "Oups, l'envoi a échoué. Réessaie ou écris-nous à " + config.contactEmail + "."; })

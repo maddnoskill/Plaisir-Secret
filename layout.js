@@ -18,7 +18,7 @@
       "<span><b>⚑</b> Signalement en 1 clic, modération 7 jours sur 7</span>" +
       "</div></div>" +
       '<header class="topbar"><div class="wrap">' +
-      '<a class="logo" href="index.html' + q + '">Plaisir <span>Secret</span></a>' +
+      '<a class="logo" href="index.html' + q + '">Désirs <span>Secrets</span></a>' +
       '<form class="search" action="membres.html" role="search">' +
       (theme ? '<input type="hidden" name="theme" value="' + theme + '">' : "") +
       '<input name="q" placeholder="Massage, coach, ville…" aria-label="Rechercher">' +
@@ -43,13 +43,13 @@
   if (footer) {
     footer.innerHTML =
       '<footer class="footer"><div class="wrap"><div class="cols">' +
-      '<div><a class="logo" href="index.html' + q + '">Plaisir <span>Secret</span></a>' +
+      '<div><a class="logo" href="index.html' + q + '">Désirs <span>Secrets</span></a>' +
       '<p>L\'annuaire québécois des soins, du bien-être et des expériences privées. Des membres vérifiés, du respect, de la discrétion.</p></div>' +
-      "<div><h4>Explorer</h4>" + lien("membres.html", "Tous les membres") + lien("vip.html", "Membres VIP") + lien("membres.html?cat=Massoth%C3%A9rapie", "Massothérapie") + "</div>" +
+      "<div><h4>Explorer</h4>" + lien("membres.html", "Tous les membres") + lien("vip.html", "Membres VIP") + lien("cadeau.html", "🎁 Cartes-cadeaux") + lien("levis.html", "Lévis") + lien("quebec.html", "Québec") + lien("montreal.html", "Montréal") + "</div>" +
       "<div><h4>Membres</h4>" + lien("abonnement.html", "Abonnez-vous") + lien("espace-membre.html", "Mon espace") + lien("soutien.html#securite", "Sécurité") + "</div>" +
       "<div><h4>Aide</h4>" + lien("soutien.html", "Soutien et FAQ") + lien("soutien.html#signaler", "Signaler un profil") + lien("conditions.html", "Conditions d'utilisation") + lien("confidentialite.html", "Confidentialité") + "</div>" +
       "</div>" +
-      '<p class="law">© ' + new Date().getFullYear() + " Plaisir Secret, Québec. Aucune annonce de services sexuels n'est acceptée (Code criminel, art. 286.4) : chaque profil est vérifié et modéré, et tout profil qui enfreint cette règle est retiré. 18 ans et plus seulement.</p>" +
+      '<p class="law">© ' + new Date().getFullYear() + " Désirs Secrets, Québec. Aucune annonce de services sexuels n'est acceptée (Code criminel, art. 286.4) : chaque profil est vérifié et modéré, et tout profil qui enfreint cette règle est retiré. 18 ans et plus seulement.</p>" +
       "</div></footer>";
   }
 })();
