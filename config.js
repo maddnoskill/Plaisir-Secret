@@ -25,7 +25,9 @@ window.DESIRS_SECRETS = {
   // Tant que c'est vide, le formulaire ouvre plutôt l'application courriel du visiteur.
   // En attendant Formspree, on utilise FormSubmit (gratuit, sans compte) : les demandes
   // arrivent directement dans ton Gmail. La 1re fois, FormSubmit t'envoie un courriel
-  // « Activate form » : clique sur le bouton pour activer. Remplace par l'adresse Formspree plus tard.
+  // « Activate form » : clique sur le bouton pour activer. Ce courriel contient aussi un code
+  // secret (alias, ex. 7f3a9c…) : remplace ton adresse ci-dessous par ce code pour que ton
+  // courriel n'apparaisse plus dans le code du formulaire (moins de pourriels).
   formEndpoint: "https://formsubmit.co/ajax/maddnoskill@gmail.com",
 
   // Ton courriel de contact (utilisé si formEndpoint est vide).
