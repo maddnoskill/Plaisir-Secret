@@ -1,6 +1,6 @@
 # Plan d'action · Désirs Secrets
 
-Mis à jour le 13 novembre 2026, 19 h (heure de l'Est).
+Mis à jour le 13 novembre 2026, 19 h 30 (heure de l'Est). **Étapes 3 et 4 en ligne** sur https://plaisir-secret.vercel.app
 Responsable : Mathieu Desbiens (maddnoskill@gmail.com) · Ville de lancement : **Lévis** · Domaine visé : **desirs-secrets.ca** (+ desirs-secrets.com en redirection)
 
 Une **phase** = un grand objectif. Une **étape** = une branche Git et une pull request. Un compte rendu à la fin de chaque phase dans `comptes-rendus/`.
@@ -12,8 +12,8 @@ Légende : ✅ fait · 🟡 en cours · ⏳ à faire · 👤 action de Madd · �
 | Phase | Objectif | Avancement |
 |---|---|---|
 | 1. Fondations | Offre, règles, site en ligne | ✅ 100 % |
-| 2. Encaisser | Recevoir les demandes et les paiements | 🟡 70 % |
-| 3. Lancer à Lévis | Domaine, vrais membres, Google | 🟡 55 % |
+| 2. Encaisser | Recevoir les demandes et les paiements | 🟡 85 % |
+| 3. Lancer à Lévis | Domaine, vrais membres, Google | 🟡 60 % |
 | 4. Automatiser | Vrais comptes, messagerie privée, paiement auto | ⏳ 0 % |
 | 5. Grandir | Avis automatiques, plus de villes, parrainage | ⏳ 0 % |
 
@@ -25,19 +25,19 @@ Légende : ✅ fait · 🟡 en cours · ⏳ à faire · 👤 action de Madd · �
 - ✅ Étape 02 : annuaire de membres, thème velours, site public (plaisir-secret.vercel.app)
 - ✅ Compte rendu : `comptes-rendus/phase-1-fondations.md`
 
-## 🟡 Phase 2 : Encaisser (70 %)
+## 🟡 Phase 2 : Encaisser (85 %)
 
 Étape 03 `etape-03-formulaires-et-paiements` · PR #2
 - ✅ Appli web installable sur cellulaire (icône « DS », barre d'onglets, hors ligne)
 - ✅ **Formulaires fonctionnels sans compte** : réservations, messages, avis, cartes-cadeaux et inscriptions arrivent dans ton Gmail grâce à FormSubmit
 - ✅ Boutons de paiement Stripe prêts (forfaits, cartes-cadeaux, « Payer en ligne » par service)
 - ✅ Ton nom et ton courriel dans les pages légales (Loi 25)
-- 👤 **A.** Fusionner la PR #2, puis la PR #3 sur GitHub (5 min)
-- 👤 **B.** Faire une demande test sur le site, puis cliquer « Activate form » dans le courriel de FormSubmit (2 min)
+- ✅ **A.** PR #2 et #3 fusionnées, tout est en production (13 nov.)
+- ✅ **B.** FormSubmit activé, alias secret en place (ton Gmail n'est plus dans le code), envoi test reçu
 - 👤 **C.** Créer ton compte Stripe et 5 liens de paiement : Pro 19 $/mois, VIP 49 $/mois, cadeaux 50, 100 et 200 $ (30 min)
 - 🤖 **D.** Coller les liens Stripe dans `config.js`, test de paiement de 1 $ → **compte rendu phase 2**
 
-## 🟡 Phase 3 : Lancer à Lévis (55 %)
+## 🟡 Phase 3 : Lancer à Lévis (60 %)
 
 Étape 04 `etape-04-domaine-et-lancement` · PR #3
 - ✅ Nouveau nom « Désirs Secrets » partout (site, appli, icônes, pages légales, guides)
