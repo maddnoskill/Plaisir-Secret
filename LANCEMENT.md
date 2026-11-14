@@ -12,7 +12,7 @@ Plan : `desirs-secrets.ca` comme adresse principale (le `.ca` inspire confiance 
 5. Attends de 10 minutes à quelques heures. Le cadenas HTTPS est automatique et gratuit.
 6. Dans `config.js`, remplace `urlSite`, et dans `robots.txt` et `sitemap.xml`, remplace `plaisir-secret.vercel.app` par ton domaine.
 
-Note : le dépôt GitHub et le projet Vercel s'appellent encore `plaisir-secret`. Ça n'a aucun impact pour les visiteurs. On peut les renommer plus tard si tu veux, mais ça change leurs adresses.
+Note : le projet Vercel s'appelle encore `plaisir-secret` (le dépôt GitHub est déjà renommé `desirs-secrets`). Ça n'a aucun impact pour les visiteurs.
 
 ## 2. Courriel professionnel (10 min)
 
