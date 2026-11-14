@@ -1,5 +1,5 @@
 (function () {
-  var config = window.PLAISIR_SECRET || {};
+  var config = window.DESIRS_SECRETS || {};
   var membres = window.MEMBRES || [];
   var params = new URLSearchParams(location.search);
   var theme = params.get("theme");
@@ -117,7 +117,7 @@
   var profil = $("#profil");
   if (profil) {
     var m = membres.find(function (x) { return x.id === params.get("id"); }) || membres[0];
-    document.title = m.nom + " · " + m.categorie + " à " + m.ville + " · Plaisir Secret";
+    document.title = m.nom + " · " + m.categorie + " à " + m.ville + " · Désirs Secrets";
     var semaine = jours.map(function (j) {
       var h = m.dispo[j];
       return '<div class="' + (h ? "" : "off") + '"><strong>' + j + "</strong>" + (h ? esc(h).replace(" à ", "<br>à ") : "—") + "</div>";
@@ -149,7 +149,7 @@
       '<form class="form" data-form="reservation">' +
       '<input type="hidden" name="_sujet" value="Réservation pour ' + esc(m.nom) + '">' +
       '<input type="hidden" name="membre" value="' + esc(m.nom) + " (" + esc(m.id) + ')">' +
-      '<input type="hidden" name="numero" value="PS-' + (1000 + Math.floor(Math.random() * 9000)) + '">' +
+      '<input type="hidden" name="numero" value="DS-' + (1000 + Math.floor(Math.random() * 9000)) + '">' +
       '<label>Service<select name="service" required>' + m.services.map(function (s) { return "<option>" + esc(s.nom) + " · " + s.prix + " $</option>"; }).join("") + "</select></label>" +
       '<div class="two"><label>Date<input type="date" name="date" required></label><label>Heure<input type="time" name="heure" required></label></div>' +
       '<div class="two"><label>Prénom<input name="prenom" required autocomplete="given-name"></label><label>Cellulaire<input type="tel" name="telephone" required autocomplete="tel"></label></div>' +
@@ -164,7 +164,7 @@
       '<p class="secure-note">🔒 Paiement par carte via un lien sécurisé, seulement après la confirmation du membre. Annulation gratuite jusqu\'à 24 h avant.</p>' +
       '<div class="tips"><strong>Conseils antifraude</strong><ul>' +
       "<li>Ne paie jamais par carte-cadeau, cryptomonnaie ou virement à l'avance hors du site.</li>" +
-      "<li>Plaisir Secret ne te demandera jamais ton mot de passe.</li>" +
+      "<li>Désirs Secrets ne te demandera jamais ton mot de passe.</li>" +
       "<li>Un prix trop beau pour être vrai ? Signale-le.</li></ul></div>" +
       '<button class="report" data-ouvrir="modal-signaler">⚑ Signaler ce profil</button>' +
       "</aside></div>";
@@ -220,7 +220,7 @@
   // ----- Espace membre (démo, enregistré dans ce navigateur) -----
   var espace = $("#espace");
   if (espace) {
-    var cle = "plaisir-secret-mon-profil";
+    var cle = "desirs-secrets-mon-profil";
     var moi;
     try { moi = JSON.parse(localStorage.getItem(cle)); } catch (err) { moi = null; }
     if (!moi) moi = JSON.parse(JSON.stringify(membres[0]));
@@ -288,7 +288,7 @@
         var lines = [];
         data.forEach(function (value, key) { if (key.charAt(0) !== "_") lines.push(key + " : " + value); });
         window.location.href = "mailto:" + config.contactEmail +
-          "?subject=" + encodeURIComponent(data.get("_sujet") || "Plaisir Secret") +
+          "?subject=" + encodeURIComponent(data.get("_sujet") || "Désirs Secrets") +
           "&body=" + encodeURIComponent(lines.join("\n"));
         status.textContent = "Ton application courriel s'ouvre. Envoie le message pour finaliser.";
         return;
@@ -296,9 +296,17 @@
 
       button.disabled = true;
       status.textContent = "Envoi en cours…";
+      if (config.formEndpoint.indexOf("formsubmit.co") > -1) {
+        data.set("_subject", "Désirs Secrets : " + (data.get("_sujet") || "Nouveau message"));
+        data.set("_template", "table");
+        data.set("_captcha", "false");
+        data.set("_honey", data.get("_gotcha") || "");
+        if (data.get("courriel")) data.set("_replyto", data.get("courriel"));
+      }
       fetch(config.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
-        .then(function (r) {
-          if (!r.ok) throw new Error("Envoi refusé");
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (rep) { return { ok: r.ok, rep: rep }; }); })
+        .then(function (res) {
+          if (!res.ok || res.rep.success === false || res.rep.success === "false") throw new Error("Envoi refusé");
           form.reset();
           status.textContent = form.dataset.form === "reservation"
             ? "✓ Demande " + (data.get("numero") || "") + " envoyée ! Garde ce numéro : il te servira pour laisser un avis. Le membre confirme sa dispo, puis tu reçois un lien de paiement sécurisé. Réponse en moins de 24 h."

@@ -1,4 +1,6 @@
-# Reprendre le projet Plaisir Secret
+# Reprendre le projet Désirs Secrets
+
+Le projet s'appelle **Désirs Secrets** depuis le 13 novembre 2026 (anciennement Plaisir Secret : le dépôt GitHub et le projet Vercel gardent l'ancien nom `plaisir-secret`).
 
 Ce guide permet à **n'importe qui** (toi, un ami, un développeur, une IA) de reprendre le projet à n'importe quelle étape.
 

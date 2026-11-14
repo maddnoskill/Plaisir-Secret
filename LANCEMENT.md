@@ -2,20 +2,21 @@
 
 ## 1. Ton nom de domaine (15 min, environ 15 à 25 $ par année)
 
-⚠️ Vérifié le 13 novembre 2026 : **`plaisir-secret.com` et `plaisirsecret.com` sont déjà pris** par quelqu'un d'autre.
-Libres au même moment : **`plaisirsecret.ca`**, **`plaisir-secret.ca`**, **`plaisirsecret.quebec`**.
-Le `.ca` est le meilleur choix au Québec : les gens lui font confiance et Google le montre en priorité au Canada.
+Nom choisi : **Désirs Secrets**. Vérifié le 13 novembre 2026 : **`desirs-secrets.ca`** et **`desirs-secrets.com`** sont libres (`desirssecrets.com` sans tiret est pris).
+Plan : `desirs-secrets.ca` comme adresse principale (le `.ca` inspire confiance au Québec et Google le favorise au Canada), et `desirs-secrets.com` en redirection pour que personne ne le prenne.
 
 1. Achète-le sur un registraire canadien, par exemple **Webnames.ca** ou **Namecheap**, ou directement dans Vercel (**Domains** > **Buy**).
 2. Achète-le (1 an suffit pour commencer).
-3. Dans Vercel : projet **plaisir-secret** > **Settings** > **Domains** > ajoute `plaisirsecret.ca` et `www.plaisirsecret.ca`.
+3. Dans Vercel : projet **plaisir-secret** > **Settings** > **Domains** > ajoute `desirs-secrets.ca`, `www.desirs-secrets.ca` et `desirs-secrets.com` (Vercel propose de le rediriger vers le `.ca`).
 4. Vercel t'affiche 2 lignes DNS (un « A » et un « CNAME »). Copie-les dans la zone DNS de ton registraire.
 5. Attends de 10 minutes à quelques heures. Le cadenas HTTPS est automatique et gratuit.
 6. Dans `config.js`, remplace `urlSite`, et dans `robots.txt` et `sitemap.xml`, remplace `plaisir-secret.vercel.app` par ton domaine.
 
+Note : le dépôt GitHub et le projet Vercel s'appellent encore `plaisir-secret`. Ça n'a aucun impact pour les visiteurs. On peut les renommer plus tard si tu veux, mais ça change leurs adresses.
+
 ## 2. Courriel professionnel (10 min)
 
-Un courriel comme `bonjour@plaisirsecret.ca` inspire confiance. Option gratuite : la redirection de courriel de ton registraire (vers ton Gmail). Option pro : Google Workspace ou Zoho Mail.
+Un courriel comme `bonjour@desirs-secrets.ca` inspire confiance. Option gratuite : la redirection de courriel de ton registraire (vers ton Gmail). Option pro : Google Workspace ou Zoho Mail.
 
 ## 3. Tes 3 à 5 premiers vrais membres
 
@@ -28,7 +29,7 @@ Un courriel comme `bonjour@plaisirsecret.ca` inspire confiance. Option gratuite 
 ## 4. Être trouvé sur Google (30 min)
 
 1. **Google Search Console** (gratuit) : ajoute ton domaine, puis soumets `sitemap.xml`. Google indexe tes pages en quelques jours.
-2. **Fiche Google Business** : crée la fiche « Plaisir Secret », catégorie « Service de bien-être » ou « Annuaire d'entreprises ».
+2. **Fiche Google Business** : crée la fiche « Désirs Secrets », catégorie « Service de bien-être » ou « Annuaire d'entreprises ».
 3. Le site a déjà ses aperçus de partage : quand tu colles le lien sur Facebook ou Messenger, une belle image apparaît (`assets/img/partage.jpg`).
 
 ## 5. Annoncer le lancement

@@ -1,5 +1,5 @@
 // ===== Réglages du site : c'est le seul fichier à modifier =====
-window.PLAISIR_SECRET = {
+window.DESIRS_SECRETS = {
   // Thème de couleurs : "velours", "bordeaux", "nuit" ou "creme".
   theme: "velours",
 
@@ -23,10 +23,13 @@ window.PLAISIR_SECRET = {
   // 2. Crée un formulaire, puis copie son adresse (ex. https://formspree.io/f/abcdwxyz)
   // 3. Colle-la entre les guillemets ci-dessous.
   // Tant que c'est vide, le formulaire ouvre plutôt l'application courriel du visiteur.
-  formEndpoint: "",
+  // En attendant Formspree, on utilise FormSubmit (gratuit, sans compte) : les demandes
+  // arrivent directement dans ton Gmail. La 1re fois, FormSubmit t'envoie un courriel
+  // « Activate form » : clique sur le bouton pour activer. Remplace par l'adresse Formspree plus tard.
+  formEndpoint: "https://formsubmit.co/ajax/maddnoskill@gmail.com",
 
   // Ton courriel de contact (utilisé si formEndpoint est vide).
-  contactEmail: "contact@exemple.ca",
+  contactEmail: "maddnoskill@gmail.com",
 
   // Liens de paiement Stripe pour les forfaits des membres (abonnement mensuel).
   // Dans Stripe : Catalogue de produits > créer « Forfait Pro 19 $/mois » > Créer un lien de paiement.
@@ -39,6 +42,6 @@ window.PLAISIR_SECRET = {
 // Aperçu d'un autre thème sans rien modifier : ajoute ?theme=nuit à l'adresse.
 (function () {
   var t = new URLSearchParams(location.search).get("theme");
-  if (t) window.PLAISIR_SECRET.theme = t;
-  document.documentElement.setAttribute("data-theme", window.PLAISIR_SECRET.theme);
+  if (t) window.DESIRS_SECRETS.theme = t;
+  document.documentElement.setAttribute("data-theme", window.DESIRS_SECRETS.theme);
 })();
