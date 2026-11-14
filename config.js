@@ -28,7 +28,7 @@ window.DESIRS_SECRETS = {
   // « Activate form » : clique sur le bouton pour activer. Ce courriel contient aussi un code
   // secret (alias, ex. 7f3a9c…) : remplace ton adresse ci-dessous par ce code pour que ton
   // courriel n'apparaisse plus dans le code du formulaire (moins de pourriels).
-  formEndpoint: "https://formsubmit.co/ajax/maddnoskill@gmail.com",
+  formEndpoint: "https://formsubmit.co/ajax/92a055def40abb315026c8bc01b5d8df",
 
   // Ton courriel de contact (utilisé si formEndpoint est vide).
   contactEmail: "maddnoskill@gmail.com",
