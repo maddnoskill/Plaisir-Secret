@@ -1,6 +1,9 @@
 // ===== Profils des membres (démo) =====
 // Chaque bloc { ... } est un profil. Pour ajouter un membre : copie un bloc,
 // change l'id (sans espace ni accent), les textes et la photo (dossier assets/img).
+// Paiement en ligne (facultatif) : ajoute lien: "https://buy.stripe.com/..." à un service
+// pour afficher un bouton « Payer en ligne » sur le profil. Sinon, tu envoies le lien
+// de paiement au visiteur après la confirmation du membre (mode concierge).
 // Les profils ci-dessous sont FICTIFS : photos libres de droits (Unsplash) pour la démo.
 
 window.CATEGORIES = [
